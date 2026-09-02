@@ -1,0 +1,682 @@
+{
+  "onboarding": {
+    "slides": {
+      "first": {
+        "title": "सुरक्षित और भरोसेमंद",
+        "description": "आपकी सुरक्षा हमारी सर्वोच्च प्राथमिकता है। आपके द्वारा किया गया प्रत्येक लेन-देन उन्नत एन्क्रिप्शन तकनीकों और वैश्विक मानकों को पूरा करने वाले कड़े सुरक्षा प्रोटोकॉल के माध्यम से सुरक्षित किया जाता है। हम अपनी प्रणालियों की लगातार निगरानी और सुधार करते हैं ताकि आपकी व्यक्तिगत और वित्तीय जानकारी को अनधिकृत पहुँच से बचाया जा सके, जिससे आपका डेटा निजी और आपका पैसा यात्रा के हर चरण में सुरक्षित बना रहे।"
+      },
+      "second": {
+        "title": "तेज़ ट्रांसफर",
+        "description": "गति और विश्वसनीयता के लिए डिज़ाइन की गई हमारी ऑप्टिमाइज़्ड ट्रांसफर प्रणाली के साथ पैसे को तेज़ी और भरोसे के साथ भेजें। शुरुआत से लेकर पूरा होने तक, प्रतीक्षा समय कम करने के लिए हर चरण को सुव्यवस्थित किया गया है, साथ ही आपको रियल-टाइम अपडेट और सूचनाओं के माध्यम से जानकारी देता रहता है। चाहे आपातकालीन सहायता हो या नियमित ट्रांसफर, आपका पैसा अपने गंतव्य तक समय पर पहुँचता है, जिससे आपको कभी भी, कहीं भी अपने लेन-देन पर पूर्ण नियंत्रण और मन की शांति मिलती है।"
+      }
+    }
+  },
+  "login": {
+    "title": "वापसी पर स्वागत है",
+    "subtitle": "जारी रखने के लिए अपने खाते में साइन इन करें",
+    "idType": {
+      "label": "ID प्रकार",
+      "placeholder": "ID प्रकार चुनें",
+      "error": "अभी केवल {idType} ID प्रकार उपलब्ध है"
+    },
+    "idNumber": {
+      "label": "ID नंबर",
+      "placeholder": "अपना ID नंबर दर्ज करें",
+      "validationError": "कृपया एक मान्य ID नंबर दर्ज करें"
+    },
+    "mobileNumber": {
+      "label": "मोबाइल नंबर",
+      "placeholder": "अपना मोबाइल नंबर दर्ज करें",
+      "validationError": "कृपया एक मान्य 8-अंकीय मोबाइल नंबर दर्ज करें"
+    }
+  },
+  "otp": {
+    "title": "OTP दर्ज करें",
+    "description": "{mobileNumber} पर एक OTP भेजा गया है। जारी रखने के लिए कृपया OTP दर्ज करें।",
+    "validationError": "अमान्य OTP। कृपया पुनः प्रयास करें।"
+  },
+  "forgotMpin": {
+    "title": "MPIN भूल गए",
+    "idType": {
+      "label": "ID प्रकार",
+      "placeholder": "ID प्रकार चुनें",
+      "error": "अभी केवल {idType} ID प्रकार उपलब्ध है"
+    },
+    "idNumber": {
+      "label": "ID नंबर",
+      "placeholder": "अपना ID नंबर दर्ज करें",
+      "validationError": "कृपया एक मान्य ID नंबर दर्ज करें"
+    },
+    "mobileNumber": {
+      "label": "मोबाइल नंबर",
+      "placeholder": "अपना मोबाइल नंबर दर्ज करें",
+      "validationError": "कृपया एक मान्य 8-अंकीय मोबाइल नंबर दर्ज करें"
+    },
+    "subtitle": "नीचे अपना पंजीकृत विवरण दर्ज करें और हम आपके मोबाइल नंबर पर एक सत्यापन कोड भेजेंगे।"
+  },
+  "setMpin": {
+    "newMpin": {
+      "title": "अपना MPIN बनाएँ",
+      "errors": {
+        "invalidMpin": "MPIN 6 अंकों का होना चाहिए। कृपया एक मान्य MPIN दर्ज करें।",
+        "repeatedDigits": "MPIN में दोहराए गए अंक नहीं हो सकते। कृपया एक अलग MPIN चुनें।",
+        "sequentialDigits": "MPIN में क्रमिक अंक नहीं हो सकते। कृपया एक अलग MPIN चुनें।",
+        "sameAsCurrentMpin": "नया MPIN वर्तमान MPIN के समान नहीं हो सकता। कृपया एक अलग MPIN चुनें।"
+      }
+    },
+    "verifyMpin": {
+      "title": "अपना MPIN पुष्टि करें",
+      "success": {
+        "title": "MPIN सफलतापूर्वक सेट किया गया",
+        "message": "आपका MPIN सफलतापूर्वक सेट कर दिया गया है। अब आप लॉगिन के लिए अपने MPIN का उपयोग कर सकते हैं।"
+      },
+      "errors": {
+        "mismatchVerifyMpin": "MPIN मेल नहीं खाते। कृपया अपने MPIN की पुष्टि करने के लिए पुनः दर्ज करें।"
+      }
+    }
+  },
+  "bioMetric": {
+    "title": "बायोमेट्रिक प्रमाणीकरण",
+    "heading": "बायोमेट्रिक प्रमाणीकरण सक्षम करें",
+    "description": "हर बार पासवर्ड दर्ज किए बिना अपने खाते तक त्वरित और सुरक्षित रूप से पहुँचने के लिए अपनी फिंगरप्रिंट का उपयोग करें।",
+    "unavailable": "इस डिवाइस पर बायोमेट्रिक प्रमाणीकरण उपलब्ध नहीं है।",
+    "enableNow": "अभी सक्षम करें",
+    "maybeLater": "बाद में"
+  },
+  "main": {
+    "tabs": {
+      "home": "होम",
+      "beneficiaries": "लाभार्थी",
+      "transactions": "लेन-देन",
+      "settings": "सेटिंग्स",
+      "support": "सहायता"
+    },
+    "dialog": {
+      "exit": {
+        "title": "ऐप से बाहर निकलें",
+        "message": "क्या आप वाकई एप्लिकेशन से बाहर निकलना चाहते हैं?",
+        "button": "बाहर निकलें"
+      }
+    }
+  },
+  "home": {
+    "welcome": "NEC Exchange में आपका स्वागत है!",
+    "drawer": {
+      "hi": "नमस्ते, {userName}!",
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय",
+      "home": "होम",
+      "profile": "प्रोफ़ाइल",
+      "transactionHistory": "लेन-देन इतिहास",
+      "ourBranches": "हमारी शाखाएँ",
+      "language": "भाषा",
+      "contactUs": "हमसे संपर्क करें",
+      "termsAndConditions": "नियम और शर्तें",
+      "privacyPolicy": "गोपनीयता नीति",
+      "aboutUs": "हमारे बारे में"
+    },
+    "quickTransfer": {
+      "title": "त्वरित ट्रांसफर",
+      "viewAll": "सभी देखें"
+    },
+    "trust": {
+      "secure": {
+        "title": "सुरक्षित ट्रांसफर",
+        "subtitle": "बैंक-स्तरीय सुरक्षा"
+      },
+      "fast": {
+        "title": "तेज़ डिलीवरी",
+        "subtitle": "उसी दिन ट्रांसफर"
+      },
+      "encrypted": {
+        "title": "एन्क्रिप्टेड",
+        "subtitle": "एंड-टू-एंड एन्क्रिप्टेड"
+      }
+    },
+    "sendMoney": {
+      "title": "पैसे भेजें"
+    },
+    "transferType": {
+      "label": "ट्रांसफर प्रकार",
+      "placeholder": "ट्रांसफर प्रकार चुनें",
+      "onlyOneOption": "अभी केवल {transferType} ट्रांसफर प्रकार उपलब्ध है"
+    },
+    "paymentMethod": {
+      "label": "भुगतान विधि",
+      "placeholder": "भुगतान विधि चुनें",
+      "onlyOneOption": "अभी केवल {paymentMethod} भुगतान विधि उपलब्ध है"
+    },
+    "payNow": {
+      "button": "अभी भुगतान करें",
+      "enterAmount": "जारी रखने के लिए राशि दर्ज करें",
+      "calculating": "गणना हो रही है..."
+    },
+    "paymentDetails": {
+      "title": "भुगतान विवरण",
+      "exchangeRate": "विनिमय दर",
+      "serviceCharge": "सेवा शुल्क",
+      "vat": "VAT ({percent}%)",
+      "totalPayable": "कुल देय राशि"
+    },
+    "chooseBeneficiary": {
+      "title": "लाभार्थी चुनें",
+      "country": "देश",
+      "transferType": "ट्रांसफर प्रकार",
+      "bankOrAgent": "बैंक या एजेंट",
+      "savedBeneficiaries": "सहेजे गए लाभार्थी",
+      "noBeneficiary": "कोई लाभार्थी नहीं मिला। कृपया जारी रखने के लिए लाभार्थी जोड़ें।"
+    },
+    "emailNotVerified": {
+      "title": "ईमेल सत्यापित नहीं है",
+      "message": "एप्लिकेशन का उपयोग जारी रखने के लिए कृपया अपना ईमेल पता सत्यापित करें"
+    },
+    "verifyEmail": {
+      "title": "अपना ईमेल सत्यापित करें",
+      "description": "सत्यापन कोड प्राप्त करने के लिए कृपया अपना ईमेल पता दर्ज करें। हम आपकी पहचान की पुष्टि करने और आपके खाते को सुरक्षित करने के लिए आपके ईमेल पर एक OTP भेजेंगे।",
+      "errors": {
+        "invalidEmail": "कृपया एक मान्य ईमेल पता दर्ज करें",
+        "emailNotChanged": "कृपया अपने वर्तमान ईमेल से अलग एक ईमेल पता दर्ज करें।"
+      }
+    },
+    "otpVerification": {
+      "title": "OTP सत्यापन",
+      "description": "अपने ईमेल पते को सत्यापित करने के लिए कृपया अपने ईमेल पर भेजा गया OTP दर्ज करें।",
+      "sentTo": "कोड यहाँ भेजा गया है: {emailAddress}",
+      "success": {
+        "message": "आपका ईमेल पता सफलतापूर्वक सत्यापित कर दिया गया है।"
+      },
+      "errors": {
+        "invalidOtp": "कृपया एक मान्य OTP दर्ज करें",
+        "unableToVerifyEmailOtp": "OTP सत्यापित नहीं हो सका। कृपया सुनिश्चित करें कि आपने अपने ईमेल पर भेजा गया सही OTP दर्ज किया है।"
+      }
+    }
+  },
+  "beneficiaries": {
+    "title": "लाभार्थी प्रबंधन",
+    "searchHint": "नाम से लाभार्थी खोजें",
+    "noSearchResults": "आपकी खोज से मेल खाने वाले कोई लाभार्थी नहीं",
+    "loading": {
+      "preparingForm": "आपका फ़ॉर्म तैयार किया जा रहा है...",
+      "processing": "प्रसंस्करण हो रहा है..."
+    },
+    "beneficiaryForm": {
+      "addBeneficiary": "लाभार्थी जोड़ें",
+      "editBeneficiary": "लाभार्थी संपादित करें",
+      "country": {
+        "label": "देश",
+        "placeholder": "देश चुनें",
+        "error": "अभी केवल {country} देश उपलब्ध है"
+      },
+      "currency": {
+        "label": "मुद्रा",
+        "placeholder": "मुद्रा चुनें",
+        "error": "अभी केवल {currency} मुद्रा उपलब्ध है"
+      },
+      "transferType": {
+        "label": "ट्रांसफर प्रकार",
+        "placeholder": "ट्रांसफर प्रकार चुनें",
+        "error": "अभी केवल {transferType} ट्रांसफर प्रकार उपलब्ध है"
+      },
+      "bankOrAgent": {
+        "label": "बैंक या एजेंट",
+        "placeholder": "बैंक या एजेंट चुनें",
+        "error": "अभी केवल {bankOrAgent} बैंक या एजेंट उपलब्ध है"
+      },
+      "purposeOfTransaction": {
+        "label": "लेन-देन का उद्देश्य",
+        "placeholder": "लेन-देन का उद्देश्य चुनें",
+        "error": "अभी केवल {purposeOfTransaction} लेन-देन का उद्देश्य उपलब्ध है"
+      },
+      "sourceOfFunds": {
+        "label": "धन का स्रोत",
+        "placeholder": "धन का स्रोत चुनें",
+        "error": "अभी केवल {sourceOfFunds} धन का स्रोत उपलब्ध है"
+      },
+      "branchDisabled": "कृपया पहले एक बैंक चुनें"
+    },
+    "otp": {
+      "title": "OTP दर्ज करें",
+      "description": "{mobileNumber} पर एक OTP भेजा गया है। जारी रखने के लिए कृपया OTP दर्ज करें।",
+      "validationError": "अमान्य OTP। कृपया पुनः प्रयास करें।",
+      "success": {
+        "add": "लाभार्थी सफलतापूर्वक जोड़ा गया",
+        "update": "लाभार्थी सफलतापूर्वक अपडेट किया गया"
+      }
+    },
+    "errors": {
+      "countryRequired": "प्रक्रिया जारी रखने के लिए कृपया लाभार्थी के लिए एक देश चुनें",
+      "currencyRequired": "प्रक्रिया जारी रखने के लिए कृपया लाभार्थी के लिए एक मुद्रा चुनें",
+      "transferTypeRequired": "प्रक्रिया जारी रखने के लिए कृपया लाभार्थी के लिए एक ट्रांसफर प्रकार चुनें",
+      "bankOrAgentRequired": "प्रक्रिया जारी रखने के लिए कृपया लाभार्थी के लिए एक बैंक या एजेंट चुनें",
+      "purposeOfTransactionRequired": "प्रक्रिया जारी रखने के लिए कृपया लाभार्थी के लिए एक लेन-देन उद्देश्य चुनें",
+      "sourceOfFundsRequired": "प्रक्रिया जारी रखने के लिए कृपया लाभार्थी के लिए एक धन का स्रोत चुनें"
+    },
+    "empty": {
+      "title": "अभी तक कोई लाभार्थी नहीं",
+      "subtitle": "तेज़ी और आसानी से पैसे भेजना शुरू करने के लिए एक लाभार्थी जोड़ें।"
+    },
+    "actions": {
+      "title": "लाभार्थी विकल्प",
+      "description": "आप क्या करना चाहेंगे?",
+      "edit": "संपादित करें",
+      "editSubtitle": "लाभार्थी विवरण अपडेट करें",
+      "delete": "हटाएँ",
+      "deleteSubtitle": "इस लाभार्थी को हटाएँ"
+    },
+    "delete": {
+      "confirmTitle": "लाभार्थी हटाएँ?",
+      "confirmMessage": "इस लाभार्थी को स्थायी रूप से हटा दिया जाएगा। आप उन्हें कभी भी फिर से जोड़ सकते हैं।",
+      "errorTitle": "हटाने में विफल",
+      "error": "कुछ गलत हो गया। कृपया पुनः प्रयास करें।",
+      "success": "लाभार्थी सफलतापूर्वक हटाया गया"
+    }
+  },
+  "settings": {
+    "title": "सेटिंग्स",
+    "profile": {
+      "title": "प्रोफ़ाइल"
+    },
+    "transactionHistory": {
+      "title": "लेन-देन इतिहास"
+    },
+    "ourBranches": {
+      "title": "हमारी शाखाएँ"
+    },
+    "biometricAuthentication": {
+      "title": "बायोमेट्रिक प्रमाणीकरण"
+    },
+    "language": {
+      "title": "भाषा"
+    },
+    "changeMpin": {
+      "title": "MPIN बदलें"
+    },
+    "contactUs": {
+      "title": "हमसे संपर्क करें"
+    },
+    "termsAndConditions": {
+      "title": "नियम और शर्तें"
+    },
+    "privacyPolicy": {
+      "title": "गोपनीयता नीति"
+    },
+    "aboutUs": {
+      "title": "हमारे बारे में"
+    }
+  },
+  "support": {
+    "title": "ग्राहक सहायता",
+    "subtitle": "मदद चाहिए?",
+    "description": "हमारी ग्राहक सहायता टीम आपकी मदद करने के लिए हर समय तैयार है।",
+    "contactUs": {
+      "title": "हमसे संपर्क करें",
+      "whatsapp": {
+        "title": "WhatsApp सहायता",
+        "message": "हमारी सहायता टीम के साथ चैट करें"
+      },
+      "email": {
+        "title": "ईमेल सहायता",
+        "message": "अपने प्रश्न हमारे ईमेल पर भेजें"
+      }
+    },
+    "instruction": "हमारी सहायता टीम आपकी किसी भी समस्या या प्रश्न में मदद करने के लिए 24/7 उपलब्ध है। संपर्क करने में संकोच न करें!"
+  },
+  "summary": {
+    "title": "लेन-देन सारांश",
+    "beneficiaryDetails": {
+      "title": "लाभार्थी विवरण",
+      "country": "देश",
+      "name": "नाम",
+      "transferType": "ट्रांसफर प्रकार",
+      "bankOrAgent": "बैंक / एजेंट",
+      "accountNumber": "खाता संख्या",
+      "purposeOfTransaction": "लेन-देन का उद्देश्य",
+      "sourceOfFunds": "धन का स्रोत"
+    },
+    "transferDetails": {
+      "title": "ट्रांसफर विवरण"
+    },
+    "paymentMethod": {
+      "title": "भुगतान विधि",
+      "label": "भुगतान विधि",
+      "placeholder": "भुगतान विधि चुनें",
+      "error": "अभी केवल {paymentMethod} भुगतान विधि उपलब्ध है"
+    },
+    "webView": {
+      "title": "अपना भुगतान पूरा करें",
+      "leaveDialog": {
+        "title": "भुगतान छोड़ें?",
+        "message": "आपका भुगतान अभी भी प्रगति पर है। अभी छोड़ने से कोई भी लंबित लेन-देन रद्द नहीं होगा।",
+        "confirm": "छोड़ें",
+        "cancel": "रुकें"
+      }
+    },
+    "errors": {
+      "statusEnquiryFailed": "भुगतान स्थिति प्राप्त करने में असमर्थ। कृपया अपना लेन-देन इतिहास देखें।"
+    }
+  },
+  "profile": {
+    "title": "प्रोफ़ाइल",
+    "contactDetails": {
+      "title": "संपर्क विवरण",
+      "mobileNumber": "मोबाइल नंबर",
+      "emailAddress": "ईमेल"
+    },
+    "kycDetails": {
+      "title": "KYC विवरण",
+      "gender": "लिंग",
+      "genderFemale": "महिला",
+      "genderMale": "पुरुष",
+      "nationality": "राष्ट्रीयता",
+      "dateOfBirth": "जन्म तिथि",
+      "placeOfBirth": "जन्म स्थान",
+      "countryOfBirth": "जन्म का देश",
+      "address": "पता"
+    },
+    "emiratesIdDetails": {
+      "title": "Emirates ID विवरण",
+      "idNumber": "ID नंबर",
+      "issueDate": "जारी करने की तिथि",
+      "expiryDate": "समाप्ति तिथि"
+    },
+    "professionalDetails": {
+      "title": "व्यावसायिक विवरण",
+      "companyName": "कंपनी का नाम",
+      "professionOrOccupation": "पेशा / व्यवसाय",
+      "expectedAnnualTransactionCount": "अपेक्षित वार्षिक लेन-देन संख्या",
+      "expectedAnnualTransactionAmount": "अपेक्षित वार्षिक लेन-देन राशि"
+    },
+    "updateEmail": {
+      "errors": {
+        "invalidEmail": "कृपया एक मान्य ईमेल पता दर्ज करें",
+        "emailNotChanged": "कृपया अपने वर्तमान ईमेल से अलग एक ईमेल पता दर्ज करें।"
+      }
+    },
+    "otpVerification": {
+      "title": "OTP सत्यापन",
+      "description": "अपने नए ईमेल पते को सत्यापित करने के लिए कृपया अपने ईमेल पर भेजा गया OTP दर्ज करें।",
+      "sentTo": "कोड यहाँ भेजा गया है: {emailAddress}",
+      "success": {
+        "message": "आपका ईमेल पता सफलतापूर्वक अपडेट कर दिया गया है।"
+      },
+      "errors": {
+        "invalidOtp": "कृपया एक मान्य OTP दर्ज करें",
+        "unableToVerifyEmailOtp": "OTP सत्यापित नहीं हो सका। कृपया सुनिश्चित करें कि आपने अपने ईमेल पर भेजा गया सही OTP दर्ज किया है।"
+      }
+    }
+  },
+  "transactionHistory": {
+    "title": "लेन-देन इतिहास",
+    "searchHint": "लेन-देन खोजें",
+    "noTransactions": "कोई लेन-देन नहीं मिला",
+    "sort": {
+      "title": "इसके अनुसार क्रमबद्ध करें",
+      "label": "क्रमबद्ध करें",
+      "highToLow": "अधिक से कम",
+      "lowToHigh": "कम से अधिक",
+      "newestFirst": "नवीनतम पहले",
+      "oldestFirst": "पुराने पहले"
+    },
+    "filter": {
+      "title": "इसके अनुसार फ़िल्टर करें",
+      "label": "फ़िल्टर",
+      "noFilterOptions": "कोई फ़िल्टर विकल्प उपलब्ध नहीं है, कृपया बाद में पुनः प्रयास करें।"
+    },
+    "errors": {
+      "unableToGetTransactionHistory": "लेन-देन लोड नहीं हो सके। कृपया अपना इंटरनेट कनेक्शन जाँचें और पुनः प्रयास करें।",
+      "unableToGetTransactionHistoryDetails": "लेन-देन विवरण लोड नहीं हो सके। कृपया अपना इंटरनेट कनेक्शन जाँचें और पुनः प्रयास करें।",
+      "transactionReferenceNotFound": "लेन-देन संदर्भ नहीं मिला। रसीद डाउनलोड करने में असमर्थ।",
+      "transactionReferenceNotFoundShare": "लेन-देन संदर्भ नहीं मिला। रसीद साझा करने में असमर्थ।",
+      "unableToDownloadOrShareTransactionHistoryReceipt": "रसीद डाउनलोड करने में असमर्थ। कृपया अपना इंटरनेट कनेक्शन जाँचें और पुनः प्रयास करें।"
+    },
+    "shareReceiptText": "लेन-देन रसीद",
+    "noTransactionsSubtitle": "जैसे ही आप पैसे भेजना शुरू करेंगे, आपके लेन-देन यहाँ दिखाई देंगे।"
+  },
+  "ourBranches": {
+    "title": "हमारी शाखाएँ",
+    "noBranches": "कोई शाखा जानकारी उपलब्ध नहीं",
+    "searchHint": "नाम या स्थान से शाखाएँ खोजें"
+  },
+  "notifications": {
+    "title": "सूचनाएँ",
+    "noNotifications": "कोई सूचना उपलब्ध नहीं",
+    "errors": {
+      "unableToGetNotifications": "सूचनाएँ प्राप्त करने में असमर्थ। कृपया पुनः प्रयास करें।"
+    },
+    "noNotificationsSubtitle": "आप पूरी तरह से अपडेटेड हैं! अपडेट के लिए बाद में देखें।"
+  },
+  "changeMpin": {
+    "currentMpin": {
+      "title": "अपना वर्तमान MPIN दर्ज करें",
+      "error": "MPIN मेल नहीं खाता। कृपया सही MPIN पुनः दर्ज करें।"
+    },
+    "newMpin": {
+      "title": "अपना नया MPIN दर्ज करें",
+      "errors": {
+        "sequentialDigits": "MPIN में क्रमिक अंक नहीं हो सकते। कृपया एक अलग MPIN चुनें।",
+        "repeatedDigits": "MPIN में दोहराए गए अंक नहीं हो सकते। कृपया एक अलग MPIN चुनें।",
+        "invalidMpin": "MPIN 6 अंकों का होना चाहिए। कृपया एक मान्य MPIN दर्ज करें।",
+        "sameAsCurrentMpin": "नया MPIN वर्तमान MPIN के समान नहीं हो सकता। कृपया एक अलग MPIN चुनें।"
+      }
+    },
+    "verifyMpin": {
+      "title": "अपने नए MPIN की पुष्टि करें",
+      "success": {
+        "title": "MPIN सफलतापूर्वक बदला गया",
+        "message": "आपका MPIN सफलतापूर्वक बदल दिया गया है, अब आप लॉगिन के लिए अपने नए MPIN का उपयोग कर सकते हैं।"
+      },
+      "errors": {
+        "mismatchVerifyMpin": "MPIN मेल नहीं खाते। कृपया अपने नए MPIN की पुष्टि करने के लिए पुनः दर्ज करें।"
+      }
+    }
+  },
+  "core": {
+    "otp": {
+      "title": "OTP सत्यापन",
+      "verificationCode": {
+        "label": "वन-टाइम पासवर्ड (OTP)",
+        "placeholder": "OTP दर्ज करें"
+      },
+      "resendOtp": "OTP पुनः भेजें"
+    },
+    "mpin": {
+      "title": "नमस्ते, {userName}!",
+      "subtitle": "कृपया 6-अंकीय MPIN दर्ज करें",
+      "loginWithOtp": "OTP से लॉगिन करें",
+      "forgotMpin": "MPIN भूल गए?",
+      "biometricLogin": "लॉगिन के लिए फिंगरप्रिंट का उपयोग करें",
+      "biometricSubtitle": "सुरक्षित और तेज़",
+      "biometricReason": "अपने खाते तक पहुँचने के लिए प्रमाणीकरण करें"
+    },
+    "sendMoney": {
+      "topField": {
+        "label": "आप भेजते हैं"
+      },
+      "bottomField": {
+        "label": "प्राप्तकर्ता को मिलेगा"
+      },
+      "rateIsNotAvailable": "दर उपलब्ध नहीं है",
+      "calculating": "कृपया प्रतीक्षा करें जब तक हम राशि की गणना करते हैं",
+      "currencyOrCountry": "मुद्रा या देश"
+    },
+    "greeting": {
+      "goodMorning": "सुप्रभात",
+      "goodAfternoon": "नमस्कार",
+      "goodEvening": "शुभ संध्या",
+      "goodNight": "शुभ रात्रि"
+    },
+    "selectablePage": {
+      "title": "{title} चुनें",
+      "searchPlaceholder": "{title} खोजें",
+      "noResults": "कोई {title} नहीं मिला"
+    },
+    "actionTypes": {
+      "select": "{fieldName} चुनें",
+      "enter": "{fieldName} दर्ज करें"
+    },
+    "stepper": {
+      "step1": "राशि की\nगणना करें",
+      "step2": "प्राप्तकर्ता\nचुनें",
+      "step3": "भुगतान\nकरें"
+    },
+    "beneficiaryHeader": {
+      "country": "देश",
+      "transferType": "ट्रांसफर प्रकार",
+      "bankOrAgent": "बैंक / एजेंट"
+    },
+    "paymentResult": {
+      "title": "भुगतान परिणाम",
+      "success": {
+        "title": "भुगतान सफल!",
+        "message": "आपका भुगतान सफलतापूर्वक संसाधित कर दिया गया है।"
+      },
+      "failure": {
+        "title": "भुगतान विफल",
+        "message": "आपके भुगतान को संसाधित करने में समस्या आई। कृपया पुनः प्रयास करें।"
+      },
+      "fields": {
+        "totalAmount": "कुल राशि",
+        "referenceNo": "संदर्भ संख्या",
+        "receiver": "प्राप्तकर्ता",
+        "paymentMethod": "भुगतान विधि",
+        "dateTime": "दिनांक और समय"
+      }
+    },
+    "updateEmail": {
+      "title": "ईमेल अपडेट करें",
+      "description": "कृपया नीचे अपना नया ईमेल पता दर्ज करें। हम परिवर्तन की पुष्टि के लिए आपके नए ईमेल पर एक सत्यापन OTP भेजेंगे।",
+      "emailField": {
+        "label": "ईमेल पता",
+        "hint": "अपना नया ईमेल पता दर्ज करें"
+      }
+    },
+    "filters": {
+      "countries": "देश {length}",
+      "beneficiaries": "लाभार्थी {length}"
+    },
+    "transactionBottomSheet": {
+      "totalAmount": "कुल राशि",
+      "receiveAmount": "प्राप्त राशि",
+      "transactionDetails": "लेन-देन विवरण",
+      "date": "दिनांक",
+      "referenceID": "संदर्भ ID",
+      "paymentMethod": "भुगतान विधि",
+      "beneficiaryDetails": "लाभार्थी विवरण",
+      "beneficiary": "लाभार्थी",
+      "transferMode": "ट्रांसफर मोड",
+      "bankAccountNumber": "बैंक खाता संख्या",
+      "bankName": "बैंक का नाम"
+    },
+    "tncConsent": {
+      "prefix": "मैंने पढ़ लिया है और स्वीकार करता हूँ ",
+      "termsAndConditions": "नियम और शर्तें"
+    },
+    "languageDialog": {
+      "title": "अपनी पसंदीदा भाषा चुनें"
+    },
+    "languages": {
+      "english": "English",
+      "arabic": "العربية",
+      "malayalam": "മലയാളം",
+      "hindi": "हिन्दी",
+      "tagalog": "Filipino"
+    },
+    "validation": {
+      "empty": "{fieldName} आवश्यक है",
+      "tooShort": "{fieldName} बहुत छोटा है",
+      "tooLong": "{fieldName} बहुत लंबा है",
+      "invalidFormat": "कृपया एक मान्य {fieldName} चुनें"
+    },
+    "securityNote": "आपकी जानकारी एन्क्रिप्टेड और सुरक्षित है"
+  },
+  "buttons": {
+    "save": "सहेजें",
+    "update": "अपडेट करें",
+    "next": "अगला",
+    "continue": "जारी रखें",
+    "getStarted": "शुरू करें",
+    "addNewBeneficiary": "लाभार्थी जोड़ें",
+    "requestOtp": "OTP का अनुरोध करें",
+    "logout": "लॉगआउट",
+    "confirm": "पुष्टि करें",
+    "slideToConfirm": "पुष्टि करने के लिए स्लाइड करें",
+    "ok": "ठीक है",
+    "okay": "ठीक है",
+    "cancel": "रद्द करें",
+    "delete": "हटाएँ",
+    "verifyEmail": "ईमेल सत्यापित करें",
+    "retry": "पुनः प्रयास करें",
+    "apply": "लागू करें",
+    "share": "साझा करें",
+    "download": "डाउनलोड करें"
+  },
+  "errors": {
+    "networkError": "नेटवर्क त्रुटि। कृपया अपना इंटरनेट कनेक्शन जाँचें और पुनः प्रयास करें।",
+    "serverError": "सर्वर त्रुटि। कृपया बाद में पुनः प्रयास करें।",
+    "unknownError": "एक अज्ञात त्रुटि हुई। कृपया पुनः प्रयास करें।",
+    "orElse": "कुछ गलत हो गया। कृपया पुनः प्रयास करें।",
+    "biometricNotEnrolled": "इस डिवाइस पर कोई बायोमेट्रिक्स पंजीकृत नहीं है। कृपया अपने डिवाइस सेटिंग्स में बायोमेट्रिक्स सेट करें।"
+  },
+  "validation": {
+    "home": {
+      "amountRequired": "जारी रखने के लिए कृपया राशि दर्ज करें",
+      "transferTypeRequired": "जारी रखने के लिए कृपया ट्रांसफर प्रकार चुनें",
+      "paymentMethodRequired": "जारी रखने के लिए कृपया भुगतान विधि चुनें"
+    },
+    "summary": {
+      "beneficiaryNotReady": "लाभार्थी विवरण अभी तैयार नहीं हैं, कृपया प्रतीक्षा करें",
+      "amountRequired": "पुष्टि करने के लिए कृपया ट्रांसफर राशि दर्ज करें",
+      "paymentMethodRequired": "पुष्टि करने के लिए कृपया भुगतान विधि चुनें"
+    }
+  },
+  "network": {
+    "offline": {
+      "bannerMessage": "कोई इंटरनेट कनेक्शन नहीं"
+    },
+    "online": {
+      "bannerMessage": "पुनः ऑनलाइन!"
+    },
+    "error": {
+      "connectionError": {
+        "title": "कनेक्शन त्रुटि",
+        "message": "कोई इंटरनेट कनेक्शन नहीं। कृपया अपनी नेटवर्क सेटिंग्स जाँचें और पुनः प्रयास करें।"
+      },
+      "requestTimeout": {
+        "title": "अनुरोध समय समाप्त",
+        "message": "अनुरोध में बहुत समय लग रहा है। कृपया पुनः प्रयास करें।"
+      },
+      "serverError": {
+        "title": "सर्वर त्रुटि",
+        "message": "हमें एक अप्रत्याशित तकनीकी समस्या का सामना करना पड़ रहा है। हमारी टीम इसे हल करने के लिए काम कर रही है। कृपया बाद में पुनः प्रयास करें।"
+      },
+      "noInternetTitle": "कोई इंटरनेट कनेक्शन नहीं",
+      "noInternetDescription": "कृपया अपनी नेटवर्क सेटिंग्स जाँचें और पुनः प्रयास करें।",
+      "dataLoadTitle": "कुछ गलत हो गया",
+      "dataLoadDescription": "हम डेटा लोड नहीं कर सके। कृपया पुनः प्रयास करें।",
+      "retryButton": "पुनः प्रयास करें"
+    }
+  },
+  "appUpgrade": {
+    "defaultTitle": "नया अपडेट उपलब्ध है",
+    "defaultMessage": "ऐप का नया संस्करण उपलब्ध है। नवीनतम सुधार और सुरक्षा उन्नति के लिए अभी अपडेट करें।",
+    "forceLabel": "अनिवार्य अपडेट",
+    "whatsNew": "नया क्या है",
+    "updateButton": "अभी अपडेट करें",
+    "skipButton": "बाद में याद दिलाएं",
+    "errorOpeningStore": "स्टोर नहीं खुल सका। कृपया मैन्युअल रूप से अपडेट करें।"
+  },
+  "security": {
+    "blocked": {
+      "title": "Access Restricted",
+      "subtitle": "Your device does not meet our security requirements. For your protection, access to this application has been blocked.",
+      "exitButton": "Exit App",
+      "threats": {
+        "jailbreakOrRoot": "Jailbreak or root access detected on this device",
+        "developerMode": "Developer mode is enabled — please disable it",
+        "emulator": "This app cannot run on an emulator or simulator",
+        "usbDebugging": "USB debugging is enabled — please disable it",
+                "mockLocation": "Mock location is enabled — please disable it"
+      }
+    }
+  }
+}

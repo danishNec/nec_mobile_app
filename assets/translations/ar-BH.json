@@ -1,0 +1,682 @@
+{
+  "onboarding": {
+    "slides": {
+      "first": {
+        "title": "آمن وموثوق",
+        "description": "سلامتك هي أولويتنا القصوى. تتم حماية كل معاملة تجريها باستخدام تقنيات التشفير المتقدمة وبروتوكولات الأمان الصارمة التي تلبي المعايير العالمية. نقوم باستمرار بمراقبة وتحسين أنظمتنا لحماية معلوماتك الشخصية والمالية من الوصول غير المصرح به، مما يضمن بقاء بياناتك خاصة وأموالك آمنة في كل خطوة من الرحلة."
+      },
+      "second": {
+        "title": "تحويلات سريعة",
+        "description": "أرسل الأموال بسرعة وثقة من خلال نظام التحويل المُحسَّن لدينا المصمم للسرعة والموثوقية. من البداية حتى الإكمال، يتم تبسيط كل خطوة لتقليل وقت الانتظار مع إبقائك على اطلاع بالتحديثات والإشعارات الفورية. سواء كانت تحويلات عاجلة أو روتينية، تصل أموالك إلى وجهتها بسرعة، مما يمنحك راحة البال والتحكم الكامل في معاملاتك في أي وقت ومن أي مكان."
+      }
+    }
+  },
+  "login": {
+    "title": "مرحبًا بعودتك",
+    "subtitle": "سجّل دخولك إلى حسابك للمتابعة",
+    "idType": {
+      "label": "نوع الهوية",
+      "placeholder": "اختر نوع الهوية",
+      "error": "{idType} هو نوع الهوية الوحيد المتاح حالياً"
+    },
+    "idNumber": {
+      "label": "رقم الهوية",
+      "placeholder": "أدخل رقم هويتك",
+      "validationError": "يرجى إدخال رقم هوية صحيح"
+    },
+    "mobileNumber": {
+      "label": "رقم الجوال",
+      "placeholder": "أدخل رقم جوالك",
+      "validationError": "يرجى إدخال رقم جوال صحيح مكون من 8 أرقام"
+    }
+  },
+  "otp": {
+    "title": "أدخل رمز التحقق",
+    "description": "تم إرسال رمز التحقق إلى {mobileNumber}. يرجى إدخال الرمز للمتابعة.",
+    "validationError": "رمز التحقق غير صحيح. يرجى المحاولة مرة أخرى."
+  },
+  "forgotMpin": {
+    "title": "نسيت MPIN",
+    "idType": {
+      "label": "نوع الهوية",
+      "placeholder": "اختر نوع الهوية",
+      "error": "{idType} هو نوع الهوية الوحيد المتاح حالياً"
+    },
+    "idNumber": {
+      "label": "رقم الهوية",
+      "placeholder": "أدخل رقم هويتك",
+      "validationError": "يرجى إدخال رقم هوية صحيح"
+    },
+    "mobileNumber": {
+      "label": "رقم الجوال",
+      "placeholder": "أدخل رقم جوالك",
+      "validationError": "يرجى إدخال رقم جوال صحيح مكون من 8 أرقام"
+    },
+    "subtitle": "أدخل بياناتك المسجلة أدناه وسنرسل رمز التحقق إلى رقم جوالك."
+  },
+  "setMpin": {
+    "newMpin": {
+      "title": "أنشئ رمز MPIN الخاص بك",
+      "errors": {
+        "invalidMpin": "يجب أن يتكون رمز MPIN من 6 أرقام. يرجى إدخال رمز MPIN صحيح.",
+        "repeatedDigits": "لا يمكن أن يحتوي رمز MPIN على أرقام متكررة. يرجى اختيار رمز MPIN مختلف.",
+        "sequentialDigits": "لا يمكن أن يحتوي رمز MPIN على أرقام متسلسلة. يرجى اختيار رمز MPIN مختلف.",
+        "sameAsCurrentMpin": "لا يمكن أن يكون رمز MPIN الجديد مطابقاً للرمز الحالي. يرجى اختيار رمز MPIN مختلف."
+      }
+    },
+    "verifyMpin": {
+      "title": "أكد رمز MPIN الخاص بك",
+      "success": {
+        "title": "تم تعيين رمز MPIN بنجاح",
+        "message": "تم تعيين رمز MPIN الخاص بك بنجاح. يمكنك الآن استخدامه لتسجيل الدخول."
+      },
+      "errors": {
+        "mismatchVerifyMpin": "رموز MPIN غير متطابقة. يرجى إعادة إدخال الرمز لتأكيده."
+      }
+    }
+  },
+  "bioMetric": {
+    "title": "المصادقة البيومترية",
+    "heading": "تفعيل المصادقة البيومترية",
+    "description": "استخدم بصمة إصبعك للوصول إلى حسابك بسرعة وأمان دون إدخال كلمة المرور في كل مرة.",
+    "unavailable": "المصادقة البيومترية غير متوفرة على هذا الجهاز.",
+    "enableNow": "تفعيل الآن",
+    "maybeLater": "لاحقاً"
+  },
+  "main": {
+    "tabs": {
+      "home": "الرئيسية",
+      "beneficiaries": "المستفيدون",
+      "transactions": "المعاملات",
+      "settings": "الإعدادات",
+      "support": "الدعم"
+    },
+    "dialog": {
+      "exit": {
+        "title": "إغلاق التطبيق",
+        "message": "هل أنت متأكد من أنك تريد إغلاق التطبيق؟",
+        "button": "خروج"
+      }
+    }
+  },
+  "home": {
+    "welcome": "مرحباً بك في NEC Exchange!",
+    "drawer": {
+      "hi": "مرحباً، {userName}!",
+      "active": "نشط",
+      "inactive": "غير نشط",
+      "home": "الرئيسية",
+      "profile": "الملف الشخصي",
+      "transactionHistory": "سجل المعاملات",
+      "ourBranches": "فروعنا",
+      "language": "اللغة",
+      "contactUs": "اتصل بنا",
+      "termsAndConditions": "الشروط والأحكام",
+      "privacyPolicy": "سياسة الخصوصية",
+      "aboutUs": "من نحن"
+    },
+    "quickTransfer": {
+      "title": "تحويل سريع",
+      "viewAll": "عرض الكل"
+    },
+    "trust": {
+      "secure": {
+        "title": "تحويل آمن",
+        "subtitle": "أمان بمستوى البنوك"
+      },
+      "fast": {
+        "title": "توصيل سريع",
+        "subtitle": "تحويل في نفس اليوم"
+      },
+      "encrypted": {
+        "title": "مشفر",
+        "subtitle": "تشفير من طرف إلى طرف"
+      }
+    },
+    "sendMoney": {
+      "title": "إرسال الأموال"
+    },
+    "transferType": {
+      "label": "نوع التحويل",
+      "placeholder": "اختر نوع التحويل",
+      "onlyOneOption": "{transferType} هو نوع التحويل الوحيد المتاح حالياً"
+    },
+    "paymentMethod": {
+      "label": "طريقة الدفع",
+      "placeholder": "اختر طريقة الدفع",
+      "onlyOneOption": "{paymentMethod} هي طريقة الدفع الوحيدة المتاحة حالياً"
+    },
+    "payNow": {
+      "button": "ادفع الآن",
+      "enterAmount": "أدخل المبلغ للمتابعة",
+      "calculating": "جارٍ الحساب..."
+    },
+    "paymentDetails": {
+      "title": "تفاصيل الدفع",
+      "exchangeRate": "سعر الصرف",
+      "serviceCharge": "رسوم الخدمة",
+      "vat": "ضريبة القيمة المضافة ({percent}%)",
+      "totalPayable": "إجمالي المبلغ المستحق"
+    },
+    "chooseBeneficiary": {
+      "title": "اختر المستفيد",
+      "country": "الدولة",
+      "transferType": "نوع التحويل",
+      "bankOrAgent": "البنك أو الوكيل",
+      "savedBeneficiaries": "المستفيدون المحفوظون",
+      "noBeneficiary": "لا يوجد مستفيدون. يرجى إضافة مستفيد للمتابعة."
+    },
+    "emailNotVerified": {
+      "title": "البريد الإلكتروني غير مُحقق",
+      "message": "يرجى التحقق من بريدك الإلكتروني للاستمرار في استخدام التطبيق"
+    },
+    "verifyEmail": {
+      "title": "تحقق من بريدك الإلكتروني",
+      "description": "يرجى إدخال بريدك الإلكتروني لتلقي رمز التحقق. سنرسل لك رمز التحقق (OTP) إلى بريدك الإلكتروني للتأكد من هويتك وتأمين حسابك.",
+      "errors": {
+        "invalidEmail": "يرجى إدخال بريد إلكتروني صحيح",
+        "emailNotChanged": "يرجى إدخال بريد إلكتروني مختلف عن بريدك الحالي."
+      }
+    },
+    "otpVerification": {
+      "title": "التحقق من رمز OTP",
+      "description": "يرجى إدخال رمز OTP المرسل إلى بريدك الإلكتروني للتحقق منه.",
+      "sentTo": "تم إرسال الرمز إلى: {emailAddress}",
+      "success": {
+        "message": "تم التحقق من بريدك الإلكتروني بنجاح."
+      },
+      "errors": {
+        "invalidOtp": "يرجى إدخال رمز OTP صحيح",
+        "unableToVerifyEmailOtp": "تعذر التحقق من الرمز. يرجى التأكد من إدخال الرمز الصحيح المرسل إلى بريدك الإلكتروني."
+      }
+    }
+  },
+  "beneficiaries": {
+    "title": "إدارة المستفيدين",
+    "searchHint": "ابحث عن المستفيدين بالاسم",
+    "noSearchResults": "لا يوجد مستفيدون يطابقون بحثك",
+    "loading": {
+      "preparingForm": "جارٍ تجهيز النموذج...",
+      "processing": "جارٍ المعالجة..."
+    },
+    "beneficiaryForm": {
+      "addBeneficiary": "إضافة مستفيد",
+      "editBeneficiary": "تعديل المستفيد",
+      "country": {
+        "label": "الدولة",
+        "placeholder": "اختر الدولة",
+        "error": "{country} هي الدولة الوحيدة المتاحة حالياً"
+      },
+      "currency": {
+        "label": "العملة",
+        "placeholder": "اختر العملة",
+        "error": "{currency} هي العملة الوحيدة المتاحة حالياً"
+      },
+      "transferType": {
+        "label": "نوع التحويل",
+        "placeholder": "اختر نوع التحويل",
+        "error": "{transferType} هو نوع التحويل الوحيد المتاح حالياً"
+      },
+      "bankOrAgent": {
+        "label": "البنك أو الوكيل",
+        "placeholder": "اختر البنك أو الوكيل",
+        "error": "{bankOrAgent} هو البنك أو الوكيل الوحيد المتاح حالياً"
+      },
+      "purposeOfTransaction": {
+        "label": "الغرض من المعاملة",
+        "placeholder": "اختر الغرض من المعاملة",
+        "error": "{purposeOfTransaction} هو الغرض الوحيد المتاح حالياً"
+      },
+      "sourceOfFunds": {
+        "label": "مصدر الأموال",
+        "placeholder": "اختر مصدر الأموال",
+        "error": "{sourceOfFunds} هو مصدر الأموال الوحيد المتاح حالياً"
+      },
+      "branchDisabled": "يرجى اختيار البنك أولاً"
+    },
+    "otp": {
+      "title": "أدخل رمز التحقق",
+      "description": "تم إرسال رمز التحقق إلى {mobileNumber}. يرجى إدخال الرمز للمتابعة.",
+      "validationError": "رمز التحقق غير صحيح. يرجى المحاولة مرة أخرى.",
+      "success": {
+        "add": "تمت إضافة المستفيد بنجاح",
+        "update": "تم تحديث المستفيد بنجاح"
+      }
+    },
+    "errors": {
+      "countryRequired": "يرجى اختيار دولة للمستفيد لمتابعة العملية",
+      "currencyRequired": "يرجى اختيار عملة للمستفيد لمتابعة العملية",
+      "transferTypeRequired": "يرجى اختيار نوع التحويل للمستفيد لمتابعة العملية",
+      "bankOrAgentRequired": "يرجى اختيار البنك أو الوكيل للمستفيد لمتابعة العملية",
+      "purposeOfTransactionRequired": "يرجى اختيار الغرض من المعاملة لمتابعة العملية",
+      "sourceOfFundsRequired": "يرجى اختيار مصدر الأموال لمتابعة العملية"
+    },
+    "empty": {
+      "title": "لا يوجد مستفيدون حتى الآن",
+      "subtitle": "أضف مستفيداً لبدء إرسال الأموال بسرعة وسهولة."
+    },
+    "actions": {
+      "title": "خيارات المستفيد",
+      "description": "ماذا تريد أن تفعل؟",
+      "edit": "تعديل",
+      "editSubtitle": "تحديث بيانات المستفيد",
+      "delete": "حذف",
+      "deleteSubtitle": "إزالة هذا المستفيد"
+    },
+    "delete": {
+      "confirmTitle": "إزالة المستفيد؟",
+      "confirmMessage": "سيتم حذف هذا المستفيد نهائياً. يمكنك إضافته مجدداً في أي وقت.",
+      "errorTitle": "فشل الحذف",
+      "error": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+      "success": "تمت إزالة المستفيد بنجاح"
+    }
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "profile": {
+      "title": "الملف الشخصي"
+    },
+    "transactionHistory": {
+      "title": "سجل المعاملات"
+    },
+    "ourBranches": {
+      "title": "فروعنا"
+    },
+    "biometricAuthentication": {
+      "title": "المصادقة البيومترية"
+    },
+    "language": {
+      "title": "اللغة"
+    },
+    "changeMpin": {
+      "title": "تغيير رمز MPIN"
+    },
+    "contactUs": {
+      "title": "اتصل بنا"
+    },
+    "termsAndConditions": {
+      "title": "الشروط والأحكام"
+    },
+    "privacyPolicy": {
+      "title": "سياسة الخصوصية"
+    },
+    "aboutUs": {
+      "title": "من نحن"
+    }
+  },
+  "support": {
+    "title": "دعم العملاء",
+    "subtitle": "هل تحتاج للمساعدة؟",
+    "description": "فريق دعم العملاء لدينا جاهز لمساعدتك في أي وقت.",
+    "contactUs": {
+      "title": "اتصل بنا",
+      "whatsapp": {
+        "title": "دعم WhatsApp",
+        "message": "تواصل مع فريق الدعم لدينا"
+      },
+      "email": {
+        "title": "دعم البريد الإلكتروني",
+        "message": "أرسل استفساراتك إلى بريدنا الإلكتروني"
+      }
+    },
+    "instruction": "فريق الدعم لدينا متاح على مدار الساعة طوال أيام الأسبوع لمساعدتك في أي مشكلة أو استفسار قد يكون لديك. لا تتردد في التواصل معنا!"
+  },
+  "summary": {
+    "title": "ملخص المعاملة",
+    "beneficiaryDetails": {
+      "title": "بيانات المستفيد",
+      "country": "الدولة",
+      "name": "الاسم",
+      "transferType": "نوع التحويل",
+      "bankOrAgent": "البنك / الوكيل",
+      "accountNumber": "رقم الحساب",
+      "purposeOfTransaction": "الغرض من المعاملة",
+      "sourceOfFunds": "مصدر الأموال"
+    },
+    "transferDetails": {
+      "title": "تفاصيل التحويل"
+    },
+    "paymentMethod": {
+      "title": "طريقة الدفع",
+      "label": "طريقة الدفع",
+      "placeholder": "اختر طريقة الدفع",
+      "error": "{paymentMethod} هي طريقة الدفع الوحيدة المتاحة حالياً"
+    },
+    "webView": {
+      "title": "أكمل عملية الدفع",
+      "leaveDialog": {
+        "title": "مغادرة عملية الدفع؟",
+        "message": "عملية الدفع لا تزال جارية. المغادرة الآن لن تلغي أي معاملات قيد المعالجة.",
+        "confirm": "مغادرة",
+        "cancel": "البقاء"
+      }
+    },
+    "errors": {
+      "statusEnquiryFailed": "تعذر استرداد حالة الدفع. يرجى مراجعة سجل المعاملات."
+    }
+  },
+  "profile": {
+    "title": "الملف الشخصي",
+    "contactDetails": {
+      "title": "بيانات الاتصال",
+      "mobileNumber": "رقم الجوال",
+      "emailAddress": "البريد الإلكتروني"
+    },
+    "kycDetails": {
+      "title": "بيانات KYC",
+      "gender": "الجنس",
+      "genderFemale": "أنثى",
+      "genderMale": "ذكر",
+      "nationality": "الجنسية",
+      "dateOfBirth": "تاريخ الميلاد",
+      "placeOfBirth": "مكان الميلاد",
+      "countryOfBirth": "بلد الميلاد",
+      "address": "العنوان"
+    },
+    "emiratesIdDetails": {
+      "title": "بيانات الهوية الإماراتية",
+      "idNumber": "رقم الهوية",
+      "issueDate": "تاريخ الإصدار",
+      "expiryDate": "تاريخ الانتهاء"
+    },
+    "professionalDetails": {
+      "title": "البيانات المهنية",
+      "companyName": "اسم الشركة",
+      "professionOrOccupation": "المهنة / الوظيفة",
+      "expectedAnnualTransactionCount": "العدد السنوي المتوقع للمعاملات",
+      "expectedAnnualTransactionAmount": "المبلغ السنوي المتوقع للمعاملات"
+    },
+    "updateEmail": {
+      "errors": {
+        "invalidEmail": "يرجى إدخال بريد إلكتروني صحيح",
+        "emailNotChanged": "يرجى إدخال بريد إلكتروني مختلف عن بريدك الحالي."
+      }
+    },
+    "otpVerification": {
+      "title": "التحقق من رمز OTP",
+      "description": "يرجى إدخال رمز OTP المرسل إلى بريدك الإلكتروني للتحقق من البريد الجديد.",
+      "sentTo": "تم إرسال الرمز إلى: {emailAddress}",
+      "success": {
+        "message": "تم تحديث بريدك الإلكتروني بنجاح."
+      },
+      "errors": {
+        "invalidOtp": "يرجى إدخال رمز OTP صحيح",
+        "unableToVerifyEmailOtp": "تعذر التحقق من الرمز. يرجى التأكد من إدخال الرمز الصحيح المرسل إلى بريدك الإلكتروني."
+      }
+    }
+  },
+  "transactionHistory": {
+    "title": "سجل المعاملات",
+    "searchHint": "ابحث في المعاملات",
+    "noTransactions": "لا توجد معاملات",
+    "sort": {
+      "title": "ترتيب حسب",
+      "label": "ترتيب",
+      "highToLow": "من الأعلى إلى الأقل",
+      "lowToHigh": "من الأقل إلى الأعلى",
+      "newestFirst": "الأحدث أولاً",
+      "oldestFirst": "الأقدم أولاً"
+    },
+    "filter": {
+      "title": "تصفية حسب",
+      "label": "تصفية",
+      "noFilterOptions": "لا توجد خيارات تصفية متاحة، يرجى المحاولة لاحقاً."
+    },
+    "errors": {
+      "unableToGetTransactionHistory": "تعذر تحميل المعاملات. يرجى التحقق من اتصال الإنترنت والمحاولة مرة أخرى.",
+      "unableToGetTransactionHistoryDetails": "تعذر تحميل تفاصيل المعاملة. يرجى التحقق من اتصال الإنترنت والمحاولة مرة أخرى.",
+      "transactionReferenceNotFound": "لم يتم العثور على مرجع المعاملة. تعذر تحميل الإيصال.",
+      "transactionReferenceNotFoundShare": "لم يتم العثور على مرجع المعاملة. تعذر مشاركة الإيصال.",
+      "unableToDownloadOrShareTransactionHistoryReceipt": "تعذر تحميل الإيصال. يرجى التحقق من اتصال الإنترنت والمحاولة مرة أخرى."
+    },
+    "shareReceiptText": "إيصال المعاملة",
+    "noTransactionsSubtitle": "ستظهر معاملاتك هنا بمجرد أن تبدأ بإرسال الأموال."
+  },
+  "ourBranches": {
+    "title": "فروعنا",
+    "noBranches": "لا توجد معلومات عن الفروع",
+    "searchHint": "ابحث عن الفروع بالاسم أو الموقع"
+  },
+  "notifications": {
+    "title": "الإشعارات",
+    "noNotifications": "لا توجد إشعارات",
+    "errors": {
+      "unableToGetNotifications": "تعذر جلب الإشعارات. يرجى المحاولة مرة أخرى."
+    },
+    "noNotificationsSubtitle": "لقد اطلعت على كل شيء! تحقق لاحقاً للحصول على التحديثات."
+  },
+  "changeMpin": {
+    "currentMpin": {
+      "title": "أدخل رمز MPIN الحالي",
+      "error": "رمز MPIN غير متطابق. يرجى إعادة إدخال الرمز الصحيح."
+    },
+    "newMpin": {
+      "title": "أدخل رمز MPIN الجديد",
+      "errors": {
+        "sequentialDigits": "لا يمكن أن يحتوي رمز MPIN على أرقام متسلسلة. يرجى اختيار رمز MPIN مختلف.",
+        "repeatedDigits": "لا يمكن أن يحتوي رمز MPIN على أرقام متكررة. يرجى اختيار رمز MPIN مختلف.",
+        "invalidMpin": "يجب أن يتكون رمز MPIN من 6 أرقام. يرجى إدخال رمز MPIN صحيح.",
+        "sameAsCurrentMpin": "لا يمكن أن يكون رمز MPIN الجديد مطابقاً للرمز الحالي. يرجى اختيار رمز MPIN مختلف."
+      }
+    },
+    "verifyMpin": {
+      "title": "أكد رمز MPIN الجديد",
+      "success": {
+        "title": "تم تغيير رمز MPIN بنجاح",
+        "message": "تم تغيير رمز MPIN الخاص بك بنجاح، يمكنك الآن استخدام الرمز الجديد لتسجيل الدخول."
+      },
+      "errors": {
+        "mismatchVerifyMpin": "رموز MPIN غير متطابقة. يرجى إعادة إدخال الرمز لتأكيد رمز MPIN الجديد."
+      }
+    }
+  },
+  "core": {
+    "otp": {
+      "title": "التحقق من رمز OTP",
+      "verificationCode": {
+        "label": "رمز التحقق لمرة واحدة (OTP)",
+        "placeholder": "أدخل رمز OTP"
+      },
+      "resendOtp": "إعادة إرسال رمز OTP"
+    },
+    "mpin": {
+      "title": "مرحباً، {userName}!",
+      "subtitle": "يرجى إدخال رمز MPIN المكون من 6 أرقام",
+      "loginWithOtp": "تسجيل الدخول برمز OTP",
+      "forgotMpin": "نسيت رمز MPIN؟",
+      "biometricLogin": "استخدم بصمة الإصبع لتسجيل الدخول",
+      "biometricSubtitle": "آمن وأسرع",
+      "biometricReason": "قم بالمصادقة للوصول إلى حسابك"
+    },
+    "sendMoney": {
+      "topField": {
+        "label": "أنت ترسل"
+      },
+      "bottomField": {
+        "label": "المستلم يستلم"
+      },
+      "rateIsNotAvailable": "السعر غير متاح",
+      "calculating": "يرجى الانتظار بينما نحسب المبلغ",
+      "currencyOrCountry": "العملة أو الدولة"
+    },
+    "greeting": {
+      "goodMorning": "صباح الخير",
+      "goodAfternoon": "طاب يومك",
+      "goodEvening": "مساء الخير",
+      "goodNight": "تصبح على خير"
+    },
+    "selectablePage": {
+      "title": "اختر {title}",
+      "searchPlaceholder": "ابحث في {title}",
+      "noResults": "لم يتم العثور على {title}"
+    },
+    "actionTypes": {
+      "select": "اختر {fieldName}",
+      "enter": "أدخل {fieldName}"
+    },
+    "stepper": {
+      "step1": "احسب\nالمبلغ",
+      "step2": "اختر\nالمستلمين",
+      "step3": "أتمم\nالدفع"
+    },
+    "beneficiaryHeader": {
+      "country": "الدولة",
+      "transferType": "نوع التحويل",
+      "bankOrAgent": "البنك / الوكيل"
+    },
+    "paymentResult": {
+      "title": "نتيجة الدفع",
+      "success": {
+        "title": "تم الدفع بنجاح!",
+        "message": "تمت معالجة دفعتك بنجاح."
+      },
+      "failure": {
+        "title": "فشل الدفع",
+        "message": "حدثت مشكلة أثناء معالجة دفعتك. يرجى المحاولة مرة أخرى."
+      },
+      "fields": {
+        "totalAmount": "المبلغ الإجمالي",
+        "referenceNo": "الرقم المرجعي",
+        "receiver": "المستلم",
+        "paymentMethod": "طريقة الدفع",
+        "dateTime": "التاريخ والوقت"
+      }
+    },
+    "updateEmail": {
+      "title": "تحديث البريد الإلكتروني",
+      "description": "يرجى إدخال بريدك الإلكتروني الجديد أدناه. سنرسل رمز التحقق إلى البريد الجديد لتأكيد التغيير.",
+      "emailField": {
+        "label": "البريد الإلكتروني",
+        "hint": "أدخل بريدك الإلكتروني الجديد"
+      }
+    },
+    "filters": {
+      "countries": "الدول {length}",
+      "beneficiaries": "المستفيدون {length}"
+    },
+    "transactionBottomSheet": {
+      "totalAmount": "المبلغ الإجمالي",
+      "receiveAmount": "المبلغ المستلم",
+      "transactionDetails": "تفاصيل المعاملة",
+      "date": "التاريخ",
+      "referenceID": "الرقم المرجعي",
+      "paymentMethod": "طريقة الدفع",
+      "beneficiaryDetails": "بيانات المستفيد",
+      "beneficiary": "المستفيد",
+      "transferMode": "طريقة التحويل",
+      "bankAccountNumber": "رقم الحساب البنكي",
+      "bankName": "اسم البنك"
+    },
+    "tncConsent": {
+      "prefix": "لقد قرأت ووافقت على ",
+      "termsAndConditions": "الشروط والأحكام"
+    },
+    "languageDialog": {
+      "title": "اختر لغتك المفضلة"
+    },
+    "languages": {
+      "english": "English",
+      "arabic": "العربية",
+      "malayalam": "മലയാളം",
+      "hindi": "हिन्दी",
+      "tagalog": "Filipino"
+    },
+    "validation": {
+      "empty": "{fieldName} مطلوب",
+      "tooShort": "{fieldName} قصير جداً",
+      "tooLong": "{fieldName} طويل جداً",
+      "invalidFormat": "يرجى اختيار {fieldName} صحيح"
+    },
+    "securityNote": "معلوماتك مشفرة وآمنة"
+  },
+  "buttons": {
+    "save": "حفظ",
+    "update": "تحديث",
+    "next": "التالي",
+    "continue": "متابعة",
+    "getStarted": "ابدأ الآن",
+    "addNewBeneficiary": "إضافة مستفيد",
+    "requestOtp": "طلب رمز OTP",
+    "logout": "تسجيل الخروج",
+    "confirm": "تأكيد",
+    "slideToConfirm": "اسحب للتأكيد",
+    "ok": "موافق",
+    "okay": "حسناً",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "verifyEmail": "التحقق من البريد الإلكتروني",
+    "retry": "إعادة المحاولة",
+    "apply": "تطبيق",
+    "share": "مشاركة",
+    "download": "تحميل"
+  },
+  "errors": {
+    "networkError": "خطأ في الشبكة. يرجى التحقق من اتصال الإنترنت والمحاولة مرة أخرى.",
+    "serverError": "خطأ في الخادم. يرجى المحاولة لاحقاً.",
+    "unknownError": "حدث خطأ غير معروف. يرجى المحاولة مرة أخرى.",
+    "orElse": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "biometricNotEnrolled": "لا توجد بيانات بيومترية مسجلة على هذا الجهاز. يرجى إعداد البصمة في إعدادات جهازك."
+  },
+  "validation": {
+    "home": {
+      "amountRequired": "يرجى إدخال المبلغ للمتابعة",
+      "transferTypeRequired": "يرجى اختيار نوع التحويل للمتابعة",
+      "paymentMethodRequired": "يرجى اختيار طريقة الدفع للمتابعة"
+    },
+    "summary": {
+      "beneficiaryNotReady": "بيانات المستفيد غير جاهزة بعد، يرجى الانتظار",
+      "amountRequired": "يرجى إدخال مبلغ التحويل للتأكيد",
+      "paymentMethodRequired": "يرجى اختيار طريقة الدفع للتأكيد"
+    }
+  },
+  "network": {
+    "offline": {
+      "bannerMessage": "لا يوجد اتصال بالإنترنت"
+    },
+    "online": {
+      "bannerMessage": "عاد الاتصال!"
+    },
+    "error": {
+      "connectionError": {
+        "title": "خطأ في الاتصال",
+        "message": "لا يوجد اتصال بالإنترنت. يرجى التحقق من إعدادات الشبكة والمحاولة مرة أخرى."
+      },
+      "requestTimeout": {
+        "title": "انتهت مهلة الطلب",
+        "message": "يستغرق الطلب وقتاً طويلاً. يرجى المحاولة مرة أخرى."
+      },
+      "serverError": {
+        "title": "خطأ في الخادم",
+        "message": "نواجه مشكلة تقنية غير متوقعة. فريقنا يعمل على حلها. يرجى المحاولة لاحقاً."
+      },
+      "noInternetTitle": "لا يوجد اتصال بالإنترنت",
+      "noInternetDescription": "يرجى التحقق من إعدادات الشبكة والمحاولة مرة أخرى.",
+      "dataLoadTitle": "حدث خطأ ما",
+      "dataLoadDescription": "تعذر تحميل البيانات. يرجى المحاولة مرة أخرى.",
+      "retryButton": "حاول مرة أخرى"
+    }
+  },
+  "appUpgrade": {
+    "defaultTitle": "تحديث جديد متاح",
+    "defaultMessage": "يتوفر إصدار جديد من التطبيق. قم بالتحديث الآن للحصول على أحدث التحسينات وتعزيزات الأمان.",
+    "forceLabel": "تحديث إلزامي",
+    "whatsNew": "الجديد",
+    "updateButton": "التحديث الآن",
+    "skipButton": "ذكرني لاحقاً",
+    "errorOpeningStore": "تعذر فتح المتجر. يرجى التحديث يدوياً."
+  },
+  "security": {
+    "blocked": {
+      "title": "Access Restricted",
+      "subtitle": "Your device does not meet our security requirements. For your protection, access to this application has been blocked.",
+      "exitButton": "Exit App",
+      "threats": {
+        "jailbreakOrRoot": "Jailbreak or root access detected on this device",
+        "developerMode": "Developer mode is enabled — please disable it",
+        "emulator": "This app cannot run on an emulator or simulator",
+        "usbDebugging": "USB debugging is enabled — please disable it",
+                "mockLocation": "Mock location is enabled — please disable it"
+      }
+    }
+  }
+}

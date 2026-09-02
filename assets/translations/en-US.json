@@ -1,0 +1,684 @@
+{
+  "onboarding": {
+    "slides": {
+      "first": {
+        "title": "Safe & Secure",
+        "description": "Your safety is our highest priority. Every transaction you make is safeguarded using advanced encryption technologies and strict security protocols that meet global standards. We continuously monitor and improve our systems to protect your personal and financial information from unauthorized access, ensuring that your data remains private and your money stays secure at every step of the journey."
+      },
+      "second": {
+        "title": "Fast Transfers",
+        "description": "Send money quickly and confidently with our optimized transfer system designed for speed and reliability. From initiation to completion, every step is streamlined to reduce waiting time while keeping you informed with real-time updates and notifications. Whether it's urgent support or routine transfers, your money reaches its destination promptly, giving you peace of mind and full control over your transactions anytime, anywhere."
+      }
+    }
+  },
+  "login": {
+    "title": "Welcome Back",
+    "subtitle": "Sign in to your account to continue",
+    "idType": {
+      "label": "ID Type",
+      "placeholder": "Select ID Type",
+      "error": "{idType} is the only ID type available for now"
+    },
+    "idNumber": {
+      "label": "ID Number",
+      "placeholder": "Enter your ID Number",
+      "validationError": "Please enter a valid ID number"
+    },
+    "mobileNumber": {
+      "label": "Mobile Number",
+      "placeholder": "Enter your Mobile Number",
+      "validationError": "Please enter a valid 8-digit mobile number"
+    }
+  },
+  "otp": {
+    "title": "Enter OTP",
+    "description": "An OTP has been sent to {mobileNumber}. Please enter the OTP to continue.",
+    "validationError": "Invalid OTP. Please try again."
+  },
+  "forgotMpin": {
+    "title": "Forgot MPIN",
+    "idType": {
+      "label": "ID Type",
+      "placeholder": "Select ID Type",
+      "error": "{idType} is the only ID type available for now"
+    },
+    "idNumber": {
+      "label": "ID Number",
+      "placeholder": "Enter your ID Number",
+      "validationError": "Please enter a valid ID number"
+    },
+    "mobileNumber": {
+      "label": "Mobile Number",
+      "placeholder": "Enter your Mobile Number",
+      "validationError": "Please enter a valid 8-digit mobile number"
+    },
+    "subtitle": "Enter your registered details below and we will send a verification code to your mobile number."
+  },
+  "setMpin": {
+    "newMpin": {
+      "title": "Create your MPIN",
+      "errors": {
+        "invalidMpin": "MPIN must be 6 digits. Kindly please enter a valid MPIN.",
+        "repeatedDigits": "MPIN cannot contain repeated digits. Please choose a different MPIN.",
+        "sequentialDigits": "MPIN cannot contain sequential digits. Please choose a different MPIN.",
+        "sameAsCurrentMpin": "New MPIN cannot be the same as the current MPIN. Please choose a different MPIN."
+      }
+    },
+    "verifyMpin": {
+      "title": "Confirm your MPIN",
+      "success": {
+        "title": "MPIN Set Successfully",
+        "message": "Your MPIN has been set successfully. You can now use your MPIN to login."
+      },
+      "errors": {
+        "mismatchVerifyMpin": "MPINs do not match. Please re-enter to confirm your MPIN."
+      }
+    }
+  },
+  "bioMetric": {
+    "title": "Biometric Authentication",
+    "heading": "Enable Biometric Authentication",
+    "description": "Use your fingerprint to quickly and securely access your account without entering your password every time.",
+    "unavailable": "Biometric authentication is not available on this device.",
+    "enableNow": "Enable Now",
+    "maybeLater": "Maybe Later"
+  },
+  "main": {
+    "tabs": {
+      "home": "Home",
+      "beneficiaries": "Beneficiaries",
+      "transactions": "Transactions",
+      "settings": "Settings",
+      "support": "Support"
+    },
+    "dialog": {
+      "exit": {
+        "title": "Exit App",
+        "message": "Are you sure you want to exit the application?",
+        "button": "Exit"
+      }
+    }
+  },
+  "home": {
+    "welcome": "Welcome to NEC Exchange!",
+    "drawer": {
+      "hi": "Hi, {userName}!",
+      "active": "Active",
+      "inactive": "Inactive",
+      "home": "Home",
+      "profile": "Profile",
+      "transactionHistory": "Transaction History",
+      "ourBranches": "Our Branches",
+      "language": "Language",
+      "contactUs": "Contact Us",
+      "termsAndConditions": "Terms and Conditions",
+      "privacyPolicy": "Privacy Policy",
+      "aboutUs": "About Us"
+    },
+    "quickTransfer": {
+      "title": "Quick Transfer",
+      "viewAll": "View all"
+    },
+    "trust": {
+      "secure": {
+        "title": "Secure Transfer",
+        "subtitle": "Bank-grade security"
+      },
+      "fast": {
+        "title": "Fast Delivery",
+        "subtitle": "Same day transfer"
+      },
+      "encrypted": {
+        "title": "Encrypted",
+        "subtitle": "End-to-end encrypted"
+      }
+    },
+    "sendMoney": {
+      "title": "Send Money"
+    },
+    "transferType": {
+      "label": "Transfer Type",
+      "placeholder": "Select Transfer Type",
+      "onlyOneOption": "{transferType} is the only transfer type available for now"
+    },
+    "paymentMethod": {
+      "label": "Payment Method",
+      "placeholder": "Select Payment Method",
+      "onlyOneOption": "{paymentMethod} is the only payment method available for now"
+    },
+    "payNow": {
+      "button": "Pay Now",
+      "enterAmount": "Enter an amount to continue",
+      "calculating": "Calculating..."
+    },
+    "paymentDetails": {
+      "title": "Payment Details",
+      "exchangeRate": "Exchange Rate",
+      "serviceCharge": "Service Charge",
+      "vat": "VAT ({percent}%)",
+      "totalPayable": "Total Payable"
+    },
+    "chooseBeneficiary": {
+      "title": "Choose Beneficiary",
+      "country": "Country",
+      "transferType": "Transfer Type",
+      "bankOrAgent": "Bank or Agent",
+      "savedBeneficiaries": "Saved Beneficiaries",
+      "noBeneficiary": "No beneficiaries found. Please add a beneficiary to continue."
+    },
+    "emailNotVerified": {
+      "title": "Email Not Verified",
+      "message": "Please verify your email address to continue using the application"
+    },
+    "verifyEmail": {
+      "title": "Verify Your Email",
+      "description": "Please enter your email address to receive a verification code. We will send a one-time password (OTP) to your email to confirm your identity and secure your account.",
+      "errors": {
+        "invalidEmail": "Please enter a valid email address",
+        "emailNotChanged": "Please enter a different email address than your current one."
+      }
+    },
+    "otpVerification": {
+      "title": "OTP Verification",
+      "description": "Please enter the OTP sent to your email to verify your email address.",
+      "sentTo": "The code has been sent to: {emailAddress}",
+      "success": {
+        "message": "Your email address has been verified successfully."
+      },
+      "errors": {
+        "invalidOtp": "Please enter a valid OTP",
+        "unableToVerifyEmailOtp": "Unable to verify OTP. Please ensure you have entered the correct OTP sent to your email."
+      }
+    }
+  },
+  "beneficiaries": {
+    "title": "Manage Beneficiaries",
+    "searchHint": "Search beneficiaries by name",
+    "noSearchResults": "No beneficiaries match your search",
+    "loading": {
+      "preparingForm": "Preparing your form...",
+      "processing": "Processing..."
+    },
+    "beneficiaryForm": {
+      "addBeneficiary": "Add Beneficiary",
+      "editBeneficiary": "Edit Beneficiary",
+      "country": {
+        "label": "Country",
+        "placeholder": "Select Country",
+        "error": "{country} is the only country available for now"
+      },
+      "currency": {
+        "label": "Currency",
+        "placeholder": "Select Currency",
+        "error": "{currency} is the only currency available for now"
+      },
+      "transferType": {
+        "label": "Transfer Type",
+        "placeholder": "Select Transfer Type",
+        "error": "{transferType} is the only transfer type available for now"
+      },
+      "bankOrAgent": {
+        "label": "Bank or Agent",
+        "placeholder": "Select Bank or Agent",
+        "error": "{bankOrAgent} is the only bank or agent available for now"
+      },
+      "purposeOfTransaction": {
+        "label": "Purpose of Transaction",
+        "placeholder": "Select Purpose of Transaction",
+        "error": "{purposeOfTransaction} is the only purpose of transaction available for now"
+      },
+      "sourceOfFunds": {
+        "label": "Source of Funds",
+        "placeholder": "Select Source of Funds",
+        "error": "{sourceOfFunds} is the only source of funds available for now"
+      },
+      "branchDisabled": "Please select a bank first"
+    },
+    "otp": {
+      "title": "Enter OTP",
+      "description": "An OTP has been sent to {mobileNumber}. Please enter the OTP to continue.",
+      "validationError": "Invalid OTP. Please try again.",
+      "success": {
+        "add": "Beneficiary added successfully",
+        "update": "Beneficiary updated successfully"
+      }
+    },
+    "errors": {
+      "countryRequired": "Please select a country for the beneficiary to continue with the process",
+      "currencyRequired": "Please select a currency for the beneficiary to continue with the process",
+      "transferTypeRequired": "Please select a transfer type for the beneficiary to continue with the process",
+      "bankOrAgentRequired": "Please select a bank or agent for the beneficiary to continue with the process",
+      "purposeOfTransactionRequired": "Please select a purpose of transaction for the beneficiary to continue with the process",
+      "sourceOfFundsRequired": "Please select a source of funds for the beneficiary to continue with the process"
+    },
+    "empty": {
+      "title": "No beneficiaries yet",
+      "subtitle": "Add a beneficiary to start sending money quickly and easily."
+    },
+    "actions": {
+      "title": "Beneficiary options",
+      "description": "What would you like to do?",
+      "edit": "Edit",
+      "editSubtitle": "Update beneficiary details",
+      "delete": "Delete",
+      "deleteSubtitle": "Remove this beneficiary"
+    },
+    "delete": {
+      "confirmTitle": "Remove Beneficiary?",
+      "confirmMessage": "This beneficiary will be permanently removed. You can add them again anytime.",
+      "errorTitle": "Delete Failed",
+      "error": "Something went wrong. Please try again.",
+      "success": "Beneficiary removed successfully"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "active": "Active",
+    "inactive": "Inactive",
+    "profile": {
+      "title": "Profile"
+    },
+    "transactionHistory": {
+      "title": "Transaction History"
+    },
+    "ourBranches": {
+      "title": "Our Branches"
+    },
+    "biometricAuthentication": {
+      "title": "Biometric Authentication"
+    },
+    "language": {
+      "title": "Language"
+    },
+    "changeMpin": {
+      "title": "Change MPIN"
+    },
+    "contactUs": {
+      "title": "Contact Us"
+    },
+    "termsAndConditions": {
+      "title": "Terms and Conditions"
+    },
+    "privacyPolicy": {
+      "title": "Privacy Policy"
+    },
+    "aboutUs": {
+      "title": "About Us"
+    }
+  },
+  "support": {
+    "title": "Customer Support",
+    "subtitle": "Need Help?",
+    "description": "Our customer support team is ready to help you anytime.",
+    "contactUs": {
+      "title": "Contact Us",
+      "whatsapp": {
+        "title": "WhatsApp Support",
+        "message": "Chat with our support team"
+      },
+      "email": {
+        "title": "Email Support",
+        "message": "Send your queries to our email"
+      }
+    },
+    "instruction": "Our support team is available 24/7 to assist you with any issues or questions you may have. Don\\'t hesitate to reach out!"
+  },
+  "summary": {
+    "title": "Transaction Summary",
+    "beneficiaryDetails": {
+      "title": "Beneficiary Details",
+      "country": "Country",
+      "name": "Name",
+      "transferType": "Transfer Type",
+      "bankOrAgent": "Bank / Agent",
+      "accountNumber": "Account Number",
+      "purposeOfTransaction": "Purpose of Transaction",
+      "sourceOfFunds": "Source of Funds"
+    },
+    "transferDetails": {
+      "title": "Transfer Details"
+    },
+    "paymentMethod": {
+      "title": "Payment Method",
+      "label": "Payment Method",
+      "placeholder": "Select Payment Method",
+      "error": "{paymentMethod} is the only payment method available for now"
+    },
+    "webView": {
+      "title": "Complete Your Payment",
+      "leaveDialog": {
+        "title": "Leave Payment?",
+        "message": "Your payment is still in progress. Leaving now will not cancel any pending transactions.",
+        "confirm": "Leave",
+        "cancel": "Stay"
+      }
+    },
+    "errors": {
+      "statusEnquiryFailed": "Unable to retrieve payment status. Please check your transaction history."
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "contactDetails": {
+      "title": "Contact Details",
+      "mobileNumber": "Mobile Number",
+      "emailAddress": "Email"
+    },
+    "kycDetails": {
+      "title": "KYC Details",
+      "gender": "Gender",
+      "genderFemale": "Female",
+      "genderMale": "Male",
+      "nationality": "Nationality",
+      "dateOfBirth": "Date of Birth",
+      "placeOfBirth": "Place of Birth",
+      "countryOfBirth": "Country of Birth",
+      "address": "Address"
+    },
+    "emiratesIdDetails": {
+      "title": "Emirates ID Details",
+      "idNumber": "ID Number",
+      "issueDate": "Issue Date",
+      "expiryDate": "Expiry Date"
+    },
+    "professionalDetails": {
+      "title": "Professional Details",
+      "companyName": "Company Name",
+      "professionOrOccupation": "Profession / Occupation",
+      "expectedAnnualTransactionCount": "Expected Annual Transaction Count",
+      "expectedAnnualTransactionAmount": "Expected Annual Transaction Amount"
+    },
+    "updateEmail": {
+      "errors": {
+        "invalidEmail": "Please enter a valid email address",
+        "emailNotChanged": "Please enter a different email address than your current one."
+      }
+    },
+    "otpVerification": {
+      "title": "OTP Verification",
+      "description": "Please enter the OTP sent to your email to verify your new email address.",
+      "sentTo": "The code has been sent to: {emailAddress}",
+      "success": {
+        "message": "Your email address has been updated successfully."
+      },
+      "errors": {
+        "invalidOtp": "Please enter a valid OTP",
+        "unableToVerifyEmailOtp": "Unable to verify OTP. Please ensure you have entered the correct OTP sent to your email."
+      }
+    }
+  },
+  "transactionHistory": {
+    "title": "Transaction History",
+    "searchHint": "Search transactions",
+    "noTransactions": "No transactions found",
+    "sort": {
+      "title": "Sort by",
+      "label": "Sort",
+      "highToLow": "High to Low",
+      "lowToHigh": "Low to High",
+      "newestFirst": "Newest First",
+      "oldestFirst": "Oldest First"
+    },
+    "filter": {
+      "title": "Filter by",
+      "label": "Filter",
+      "noFilterOptions": "No filter options available, please try again later."
+    },
+    "errors": {
+      "unableToGetTransactionHistory": "Unable to load transactions. Please check your internet connection and try again.",
+      "unableToGetTransactionHistoryDetails": "Unable to load transaction details. Please check your internet connection and try again.",
+      "transactionReferenceNotFound": "Transaction reference not found. Unable to download receipt.",
+      "transactionReferenceNotFoundShare": "Transaction reference not found. Unable to share receipt.",
+      "unableToDownloadOrShareTransactionHistoryReceipt": "Unable to download receipt. Please check your internet connection and try again."
+    },
+    "shareReceiptText": "Transaction Receipt",
+    "noTransactionsSubtitle": "Your transactions will appear here once you start sending money."
+  },
+  "ourBranches": {
+    "title": "Our Branches",
+    "noBranches": "No branch information available",
+    "searchHint": "Search branches by name or location"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "noNotifications": "No notifications available",
+    "errors": {
+      "unableToGetNotifications": "Unable to fetch notifications. Please try again."
+    },
+    "noNotificationsSubtitle": "You're all caught up! Check back later for updates."
+  },
+  "changeMpin": {
+    "currentMpin": {
+      "title": "Enter your current MPIN",
+      "error": "MPIN does not match. Kindly please re-enter the correct MPIN."
+    },
+    "newMpin": {
+      "title": "Enter your new MPIN",
+      "errors": {
+        "sequentialDigits": "MPIN cannot contain sequential digits. Please choose a different MPIN.",
+        "repeatedDigits": "MPIN cannot contain repeated digits. Please choose a different MPIN.",
+        "invalidMpin": "MPIN must be 6 digits. Kindly please enter a valid MPIN.",
+        "sameAsCurrentMpin": "New MPIN cannot be the same as the current MPIN. Please choose a different MPIN."
+      }
+    },
+    "verifyMpin": {
+      "title": "Confirm your new MPIN",
+      "success": {
+        "title": "MPIN Changed Successfully",
+        "message": "Your MPIN has been successfully changed, you can now use your new MPIN to login."
+      },
+      "errors": {
+        "mismatchVerifyMpin": "MPINs do not match. Please re-enter to confirm your new MPIN."
+      }
+    }
+  },
+  "core": {
+    "otp": {
+      "title": "OTP Verification",
+      "verificationCode": {
+        "label": "One-Time Password (OTP)",
+        "placeholder": "Enter OTP"
+      },
+      "resendOtp": "Resend OTP"
+    },
+    "mpin": {
+      "title": "Hi, {userName}!",
+      "subtitle": "Please enter 6-digit MPIN",
+      "loginWithOtp": "Login with OTP",
+      "forgotMpin": "Forgot MPIN?",
+      "biometricLogin": "Use Fingerprint to login",
+      "biometricSubtitle": "Secure & Faster",
+      "biometricReason": "Authenticate to access your account"
+    },
+    "sendMoney": {
+      "topField": {
+        "label": "You Send"
+      },
+      "bottomField": {
+        "label": "Recipient Gets"
+      },
+      "rateIsNotAvailable": "Rate is not available",
+      "calculating": "Please wait while we calculate the amount",
+      "currencyOrCountry": "Currency or Country"
+    },
+    "greeting": {
+      "goodMorning": "Good Morning",
+      "goodAfternoon": "Good Afternoon",
+      "goodEvening": "Good Evening",
+      "goodNight": "Good Night"
+    },
+    "selectablePage": {
+      "title": "Select {title}",
+      "searchPlaceholder": "Search {title}",
+      "noResults": "No {title} found"
+    },
+    "actionTypes": {
+      "select": "Select {fieldName}",
+      "enter": "Enter {fieldName}"
+    },
+    "stepper": {
+      "step1": "Calculate\nAmount",
+      "step2": "Choose\nRecipients",
+      "step3": "Make\nPayment"
+    },
+    "beneficiaryHeader": {
+      "country": "Country",
+      "transferType": "Transfer Type",
+      "bankOrAgent": "Bank / Agent"
+    },
+    "paymentResult": {
+      "title": "Payment Result",
+      "success": {
+        "title": "Payment Successful!",
+        "message": "Your payment has been processed successfully."
+      },
+      "failure": {
+        "title": "Payment Failed",
+        "message": "There was an issue processing your payment. Please try again."
+      },
+      "fields": {
+        "totalAmount": "Total Amount",
+        "referenceNo": "Reference No.",
+        "receiver": "Receiver",
+        "paymentMethod": "Payment Method",
+        "dateTime": "Date & Time"
+      }
+    },
+    "updateEmail": {
+      "title": "Update Email",
+      "description": "Please enter your new email address below. We will send a verification otp to your new email to confirm the change.",
+      "emailField": {
+        "label": "Email Address",
+        "hint": "Enter your new email address"
+      }
+    },
+    "filters": {
+      "countries": "Countries {length}",
+      "beneficiaries": "Beneficiaries {length}"
+    },
+    "transactionBottomSheet": {
+      "totalAmount": "Total Amount",
+      "receiveAmount": "Receive Amount",
+      "transactionDetails": "Transaction Details",
+      "date": "Date",
+      "referenceID": "Reference ID",
+      "paymentMethod": "Payment Method",
+      "beneficiaryDetails": "Beneficiary Details",
+      "beneficiary": "Beneficiary",
+      "transferMode": "Transfer Mode",
+      "bankAccountNumber": "Bank Account Number",
+      "bankName": "Bank Name"
+    },
+    "tncConsent": {
+      "prefix": "I have read and accept the ",
+      "termsAndConditions": "Terms and Conditions"
+    },
+    "languageDialog": {
+      "title": "Choose your preferred language"
+    },
+    "languages": {
+      "english": "English",
+      "arabic": "العربية",
+      "malayalam": "മലയാളം",
+      "hindi": "हिन्दी",
+      "tagalog": "Filipino"
+    },
+    "validation": {
+      "empty": "{fieldName} مطلوب",
+      "tooShort": "{fieldName} قصير جداً",
+      "tooLong": "{fieldName} طويل جداً",
+      "invalidFormat": "يرجى اختيار {fieldName} صحيح"
+    },
+    "securityNote": "Your information is encrypted and secure"
+  },
+  "buttons": {
+    "save": "Save",
+    "update": "Update",
+    "next": "Next",
+    "continue": "Continue",
+    "getStarted": "Get Started",
+    "addNewBeneficiary": "Add Beneficiary",
+    "requestOtp": "Request OTP",
+    "logout": "Logout",
+    "confirm": "Confirm",
+    "slideToConfirm": "Slide to Confirm",
+    "ok": "OK",
+    "okay": "Okay",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "verifyEmail": "Verify Email",
+    "retry": "Retry",
+    "apply": "Apply",
+    "share" : "Share",
+    "download" : "Download"
+  },
+  "errors": {
+    "networkError": "Network error. Please check your internet connection and try again.",
+    "serverError": "Server error. Please try again later.",
+    "unknownError": "An unknown error occurred. Please try again.",
+    "orElse": "Something went wrong. Please try again.",
+    "biometricNotEnrolled": "No biometrics enrolled on this device. Please set up biometrics in your device settings."
+  },
+  "validation": {
+    "home": {
+      "amountRequired": "Please enter an amount to continue",
+      "transferTypeRequired": "Please select a transfer type to continue",
+      "paymentMethodRequired": "Please select a payment method to continue"
+    },
+    "summary": {
+      "beneficiaryNotReady": "Beneficiary details are not ready yet, please wait",
+      "amountRequired": "Please enter a transfer amount to confirm",
+      "paymentMethodRequired": "Please select a payment method to confirm"
+    }
+  },
+  "network": {
+    "offline": {
+      "bannerMessage": "No internet connection"
+    },
+    "online": {
+      "bannerMessage": "Back online!"
+    },
+    "error": {
+      "connectionError": {
+        "title": "Connection Error",
+        "message": "No internet connection. Please check your network settings and try again."
+      },
+      "requestTimeout": {
+        "title": "Request Timeout",
+        "message": "The request is taking too long. Please try again."
+      },
+      "serverError": {
+        "title": "Server Error",
+        "message": "We are experiencing an unexpected technical issue. Our team is working to resolve it. Please try again later."
+      },
+      "noInternetTitle": "No Internet Connection",
+      "noInternetDescription": "Please check your network settings and try again.",
+      "dataLoadTitle": "Something Went Wrong",
+      "dataLoadDescription": "We could not load the data. Please try again.",
+      "retryButton": "Try Again"
+    }
+  },
+  "appUpgrade": {
+    "defaultTitle": "New Update Available",
+    "defaultMessage": "A new version of the app is available. Update now for the latest improvements and security enhancements.",
+    "forceLabel": "Required Update",
+    "whatsNew": "What's New",
+    "updateButton": "Update Now",
+    "skipButton": "Remind me later",
+    "errorOpeningStore": "Could not open the store. Please update manually."
+  },
+  "security": {
+    "blocked": {
+      "title": "Access Restricted",
+      "subtitle": "Your device does not meet our security requirements. For your protection, access to this application has been blocked.",
+      "exitButton": "Exit App",
+      "threats": {
+        "jailbreakOrRoot": "Jailbreak or root access detected on this device",
+        "developerMode": "Developer mode is enabled — please disable it",
+        "emulator": "This app cannot run on an emulator or simulator",
+        "usbDebugging": "USB debugging is enabled — please disable it",
+                "mockLocation": "Mock location is enabled — please disable it"
+      }
+    }
+  }
+}

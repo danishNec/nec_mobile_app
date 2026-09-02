@@ -1,0 +1,682 @@
+{
+  "onboarding": {
+    "slides": {
+      "first": {
+        "title": "Ligtas at Secure",
+        "description": "Ang inyong kaligtasan ang aming pangunahing prayoridad. Bawat transaksyon na ginagawa ninyo ay pinoprotektahan gamit ang advanced na encryption technologies at mahigpit na security protocols na sumusunod sa pandaigdigang pamantayan. Patuloy naming binabantayan at pinapahusay ang aming mga sistema upang protektahan ang inyong personal at pinansyal na impormasyon mula sa hindi awtorisadong access, tinitiyak na ang inyong datos ay nananatiling pribado at ang inyong pera ay ligtas sa bawat hakbang ng paglalakbay."
+      },
+      "second": {
+        "title": "Mabilis na Paglilipat",
+        "description": "Magpadala ng pera nang mabilis at may kumpiyansa gamit ang aming optimized na transfer system na dinisenyo para sa bilis at pagiging maaasahan. Mula sa simula hanggang sa pagtatapos, bawat hakbang ay pinasimple upang mabawasan ang oras ng paghihintay habang inaabisuhan kayo sa pamamagitan ng real-time updates at notifications. Maging ito man ay agarang pangangailangan o regular na paglilipat, ang inyong pera ay dumarating sa kanyang destinasyon nang maaga, nagbibigay sa inyo ng katiwasayan at ganap na kontrol sa inyong mga transaksyon kahit anong oras at kahit saan."
+      }
+    }
+  },
+  "login": {
+    "title": "Maligayang Pagbabalik",
+    "subtitle": "Mag-sign in sa inyong account upang magpatuloy",
+    "idType": {
+      "label": "ID Type",
+      "placeholder": "Pumili ng ID Type",
+      "error": "{idType} lang ang available na ID type sa ngayon"
+    },
+    "idNumber": {
+      "label": "ID Number",
+      "placeholder": "Ilagay ang inyong ID Number",
+      "validationError": "Mangyaring maglagay ng wastong ID number"
+    },
+    "mobileNumber": {
+      "label": "Mobile Number",
+      "placeholder": "Ilagay ang inyong Mobile Number",
+      "validationError": "Mangyaring maglagay ng wastong 8-digit na mobile number"
+    }
+  },
+  "otp": {
+    "title": "Ilagay ang OTP",
+    "description": "Isang OTP ang ipinadala sa {mobileNumber}. Mangyaring ilagay ang OTP upang magpatuloy.",
+    "validationError": "Hindi wastong OTP. Mangyaring subukan muli."
+  },
+  "forgotMpin": {
+    "title": "Nakalimutan ang MPIN",
+    "idType": {
+      "label": "ID Type",
+      "placeholder": "Pumili ng ID Type",
+      "error": "{idType} lang ang available na ID type sa ngayon"
+    },
+    "idNumber": {
+      "label": "ID Number",
+      "placeholder": "Ilagay ang inyong ID Number",
+      "validationError": "Mangyaring maglagay ng wastong ID number"
+    },
+    "mobileNumber": {
+      "label": "Mobile Number",
+      "placeholder": "Ilagay ang inyong Mobile Number",
+      "validationError": "Mangyaring maglagay ng wastong 8-digit na mobile number"
+    },
+    "subtitle": "Ilagay ang inyong nakarehistrong impormasyon sa ibaba at magpapadala kami ng verification code sa inyong mobile number."
+  },
+  "setMpin": {
+    "newMpin": {
+      "title": "Gumawa ng inyong MPIN",
+      "errors": {
+        "invalidMpin": "Ang MPIN ay dapat na 6 digits. Mangyaring maglagay ng wastong MPIN.",
+        "repeatedDigits": "Ang MPIN ay hindi maaaring maglaman ng paulit-ulit na digits. Pumili ng ibang MPIN.",
+        "sequentialDigits": "Ang MPIN ay hindi maaaring maglaman ng sunud-sunod na digits. Pumili ng ibang MPIN.",
+        "sameAsCurrentMpin": "Ang bagong MPIN ay hindi maaaring kapareho ng kasalukuyang MPIN. Pumili ng ibang MPIN."
+      }
+    },
+    "verifyMpin": {
+      "title": "Kumpirmahin ang inyong MPIN",
+      "success": {
+        "title": "Matagumpay na Naitakda ang MPIN",
+        "message": "Matagumpay na naitakda ang inyong MPIN. Maaari na ninyong gamitin ang inyong MPIN upang mag-login."
+      },
+      "errors": {
+        "mismatchVerifyMpin": "Hindi tugma ang mga MPIN. Mangyaring ilagay muli upang kumpirmahin ang inyong MPIN."
+      }
+    }
+  },
+  "bioMetric": {
+    "title": "Biometric Authentication",
+    "heading": "I-enable ang Biometric Authentication",
+    "description": "Gamitin ang inyong fingerprint upang mabilis at ligtas na ma-access ang inyong account nang hindi kailangang maglagay ng password sa bawat oras.",
+    "unavailable": "Hindi available ang biometric authentication sa device na ito.",
+    "enableNow": "I-enable Ngayon",
+    "maybeLater": "Sa Susunod Na Lang"
+  },
+  "main": {
+    "tabs": {
+      "home": "Home",
+      "beneficiaries": "Beneficiaries",
+      "transactions": "Mga Transaksyon",
+      "settings": "Settings",
+      "support": "Suporta"
+    },
+    "dialog": {
+      "exit": {
+        "title": "Lumabas sa App",
+        "message": "Sigurado ba kayong gusto ninyong lumabas sa application?",
+        "button": "Lumabas"
+      }
+    }
+  },
+  "home": {
+    "welcome": "Maligayang pagdating sa NEC Exchange!",
+    "drawer": {
+      "hi": "Kumusta, {userName}!",
+      "active": "Aktibo",
+      "inactive": "Hindi Aktibo",
+      "home": "Home",
+      "profile": "Profile",
+      "transactionHistory": "Transaction History",
+      "ourBranches": "Mga Sangay Namin",
+      "language": "Wika",
+      "contactUs": "Makipag-ugnayan",
+      "termsAndConditions": "Mga Tuntunin at Kundisyon",
+      "privacyPolicy": "Patakaran sa Privacy",
+      "aboutUs": "Tungkol sa Amin"
+    },
+    "quickTransfer": {
+      "title": "Mabilis na Transfer",
+      "viewAll": "Tingnan Lahat"
+    },
+    "trust": {
+      "secure": {
+        "title": "Secure na Transfer",
+        "subtitle": "Bank-grade na seguridad"
+      },
+      "fast": {
+        "title": "Mabilis na Delivery",
+        "subtitle": "Same day transfer"
+      },
+      "encrypted": {
+        "title": "Encrypted",
+        "subtitle": "End-to-end encrypted"
+      }
+    },
+    "sendMoney": {
+      "title": "Magpadala ng Pera"
+    },
+    "transferType": {
+      "label": "Transfer Type",
+      "placeholder": "Pumili ng Transfer Type",
+      "onlyOneOption": "{transferType} lang ang available na transfer type sa ngayon"
+    },
+    "paymentMethod": {
+      "label": "Payment Method",
+      "placeholder": "Pumili ng Payment Method",
+      "onlyOneOption": "{paymentMethod} lang ang available na payment method sa ngayon"
+    },
+    "payNow": {
+      "button": "Magbayad Ngayon",
+      "enterAmount": "Maglagay ng halaga upang magpatuloy",
+      "calculating": "Kinakalkula..."
+    },
+    "paymentDetails": {
+      "title": "Mga Detalye ng Bayad",
+      "exchangeRate": "Exchange Rate",
+      "serviceCharge": "Service Charge",
+      "vat": "VAT ({percent}%)",
+      "totalPayable": "Kabuuang Babayaran"
+    },
+    "chooseBeneficiary": {
+      "title": "Pumili ng Beneficiary",
+      "country": "Bansa",
+      "transferType": "Transfer Type",
+      "bankOrAgent": "Bangko o Agent",
+      "savedBeneficiaries": "Mga Naka-save na Beneficiary",
+      "noBeneficiary": "Walang nakitang beneficiary. Mangyaring magdagdag ng beneficiary upang magpatuloy."
+    },
+    "emailNotVerified": {
+      "title": "Hindi Pa Na-verify ang Email",
+      "message": "Mangyaring i-verify ang inyong email address upang magpatuloy sa paggamit ng application"
+    },
+    "verifyEmail": {
+      "title": "I-verify ang Inyong Email",
+      "description": "Mangyaring ilagay ang inyong email address upang makatanggap ng verification code. Magpapadala kami ng one-time password (OTP) sa inyong email upang kumpirmahin ang inyong pagkakakilanlan at protektahan ang inyong account.",
+      "errors": {
+        "invalidEmail": "Mangyaring maglagay ng wastong email address",
+        "emailNotChanged": "Mangyaring maglagay ng ibang email address mula sa inyong kasalukuyang email."
+      }
+    },
+    "otpVerification": {
+      "title": "OTP Verification",
+      "description": "Mangyaring ilagay ang OTP na ipinadala sa inyong email upang ma-verify ang inyong email address.",
+      "sentTo": "Ang code ay ipinadala sa: {emailAddress}",
+      "success": {
+        "message": "Matagumpay na na-verify ang inyong email address."
+      },
+      "errors": {
+        "invalidOtp": "Mangyaring maglagay ng wastong OTP",
+        "unableToVerifyEmailOtp": "Hindi ma-verify ang OTP. Mangyaring siguruhing wasto ang OTP na inilagay mula sa inyong email."
+      }
+    }
+  },
+  "beneficiaries": {
+    "title": "Pamahalaan ang mga Beneficiary",
+    "searchHint": "Maghanap ng beneficiary sa pamamagitan ng pangalan",
+    "noSearchResults": "Walang beneficiary na tumutugma sa inyong paghahanap",
+    "loading": {
+      "preparingForm": "Inihahanda ang inyong form...",
+      "processing": "Pinoproseso..."
+    },
+    "beneficiaryForm": {
+      "addBeneficiary": "Magdagdag ng Beneficiary",
+      "editBeneficiary": "I-edit ang Beneficiary",
+      "country": {
+        "label": "Bansa",
+        "placeholder": "Pumili ng Bansa",
+        "error": "{country} lang ang available na bansa sa ngayon"
+      },
+      "currency": {
+        "label": "Currency",
+        "placeholder": "Pumili ng Currency",
+        "error": "{currency} lang ang available na currency sa ngayon"
+      },
+      "transferType": {
+        "label": "Transfer Type",
+        "placeholder": "Pumili ng Transfer Type",
+        "error": "{transferType} lang ang available na transfer type sa ngayon"
+      },
+      "bankOrAgent": {
+        "label": "Bangko o Agent",
+        "placeholder": "Pumili ng Bangko o Agent",
+        "error": "{bankOrAgent} lang ang available na bangko o agent sa ngayon"
+      },
+      "purposeOfTransaction": {
+        "label": "Layunin ng Transaksyon",
+        "placeholder": "Pumili ng Layunin ng Transaksyon",
+        "error": "{purposeOfTransaction} lang ang available na layunin ng transaksyon sa ngayon"
+      },
+      "sourceOfFunds": {
+        "label": "Pinagmulan ng Pondo",
+        "placeholder": "Pumili ng Pinagmulan ng Pondo",
+        "error": "{sourceOfFunds} lang ang available na pinagmulan ng pondo sa ngayon"
+      },
+      "branchDisabled": "Mangyaring pumili muna ng bangko"
+    },
+    "otp": {
+      "title": "Ilagay ang OTP",
+      "description": "Isang OTP ang ipinadala sa {mobileNumber}. Mangyaring ilagay ang OTP upang magpatuloy.",
+      "validationError": "Hindi wastong OTP. Mangyaring subukan muli.",
+      "success": {
+        "add": "Matagumpay na naidagdag ang beneficiary",
+        "update": "Matagumpay na na-update ang beneficiary"
+      }
+    },
+    "errors": {
+      "countryRequired": "Mangyaring pumili ng bansa para sa beneficiary upang magpatuloy sa proseso",
+      "currencyRequired": "Mangyaring pumili ng currency para sa beneficiary upang magpatuloy sa proseso",
+      "transferTypeRequired": "Mangyaring pumili ng transfer type para sa beneficiary upang magpatuloy sa proseso",
+      "bankOrAgentRequired": "Mangyaring pumili ng bangko o agent para sa beneficiary upang magpatuloy sa proseso",
+      "purposeOfTransactionRequired": "Mangyaring pumili ng layunin ng transaksyon para sa beneficiary upang magpatuloy sa proseso",
+      "sourceOfFundsRequired": "Mangyaring pumili ng pinagmulan ng pondo para sa beneficiary upang magpatuloy sa proseso"
+    },
+    "empty": {
+      "title": "Wala pang beneficiary",
+      "subtitle": "Magdagdag ng beneficiary upang magsimulang magpadala ng pera nang mabilis at madali."
+    },
+    "actions": {
+      "title": "Mga opsyon ng Beneficiary",
+      "description": "Ano ang gusto ninyong gawin?",
+      "edit": "I-edit",
+      "editSubtitle": "I-update ang mga detalye ng beneficiary",
+      "delete": "Burahin",
+      "deleteSubtitle": "Alisin ang beneficiary na ito"
+    },
+    "delete": {
+      "confirmTitle": "Alisin ang Beneficiary?",
+      "confirmMessage": "Permanenteng aalisin ang beneficiary na ito. Maaari ninyo silang muling idagdag kahit kailan.",
+      "errorTitle": "Hindi Matagumpay ang Pagbura",
+      "error": "May naganap na error. Mangyaring subukan muli.",
+      "success": "Matagumpay na inalis ang beneficiary"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "profile": {
+      "title": "Profile"
+    },
+    "transactionHistory": {
+      "title": "Transaction History"
+    },
+    "ourBranches": {
+      "title": "Mga Sangay Namin"
+    },
+    "biometricAuthentication": {
+      "title": "Biometric Authentication"
+    },
+    "language": {
+      "title": "Wika"
+    },
+    "changeMpin": {
+      "title": "Baguhin ang MPIN"
+    },
+    "contactUs": {
+      "title": "Makipag-ugnayan"
+    },
+    "termsAndConditions": {
+      "title": "Mga Tuntunin at Kundisyon"
+    },
+    "privacyPolicy": {
+      "title": "Patakaran sa Privacy"
+    },
+    "aboutUs": {
+      "title": "Tungkol sa Amin"
+    }
+  },
+  "support": {
+    "title": "Customer Support",
+    "subtitle": "Kailangan ng Tulong?",
+    "description": "Handa ang aming customer support team na tumulong sa inyo kahit anong oras.",
+    "contactUs": {
+      "title": "Makipag-ugnayan",
+      "whatsapp": {
+        "title": "WhatsApp Support",
+        "message": "Mag-chat sa aming support team"
+      },
+      "email": {
+        "title": "Email Support",
+        "message": "Ipadala ang inyong mga tanong sa aming email"
+      }
+    },
+    "instruction": "Ang aming support team ay available 24/7 upang tumulong sa inyo sa anumang isyu o tanong na mayroon kayo. Huwag mag-atubiling makipag-ugnayan!"
+  },
+  "summary": {
+    "title": "Buod ng Transaksyon",
+    "beneficiaryDetails": {
+      "title": "Mga Detalye ng Beneficiary",
+      "country": "Bansa",
+      "name": "Pangalan",
+      "transferType": "Transfer Type",
+      "bankOrAgent": "Bangko / Agent",
+      "accountNumber": "Account Number",
+      "purposeOfTransaction": "Layunin ng Transaksyon",
+      "sourceOfFunds": "Pinagmulan ng Pondo"
+    },
+    "transferDetails": {
+      "title": "Mga Detalye ng Transfer"
+    },
+    "paymentMethod": {
+      "title": "Payment Method",
+      "label": "Payment Method",
+      "placeholder": "Pumili ng Payment Method",
+      "error": "{paymentMethod} lang ang available na payment method sa ngayon"
+    },
+    "webView": {
+      "title": "Kumpletuhin ang Inyong Bayad",
+      "leaveDialog": {
+        "title": "Iwanan ang Bayad?",
+        "message": "Ang inyong bayad ay kasalukuyang ginagawa pa. Ang pag-alis ngayon ay hindi magkakansela ng anumang nakabinbing transaksyon.",
+        "confirm": "Iwanan",
+        "cancel": "Manatili"
+      }
+    },
+    "errors": {
+      "statusEnquiryFailed": "Hindi makuha ang status ng bayad. Mangyaring tingnan ang inyong transaction history."
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "contactDetails": {
+      "title": "Mga Detalye sa Pakikipag-ugnayan",
+      "mobileNumber": "Mobile Number",
+      "emailAddress": "Email"
+    },
+    "kycDetails": {
+      "title": "KYC Details",
+      "gender": "Kasarian",
+      "genderFemale": "Babae",
+      "genderMale": "Lalaki",
+      "nationality": "Nasyonalidad",
+      "dateOfBirth": "Petsa ng Kapanganakan",
+      "placeOfBirth": "Lugar ng Kapanganakan",
+      "countryOfBirth": "Bansa ng Kapanganakan",
+      "address": "Address"
+    },
+    "emiratesIdDetails": {
+      "title": "Mga Detalye ng Emirates ID",
+      "idNumber": "ID Number",
+      "issueDate": "Petsa ng Pag-isyu",
+      "expiryDate": "Petsa ng Pag-expire"
+    },
+    "professionalDetails": {
+      "title": "Mga Detalye sa Propesyon",
+      "companyName": "Pangalan ng Kumpanya",
+      "professionOrOccupation": "Propesyon / Trabaho",
+      "expectedAnnualTransactionCount": "Inaasahang Taunang Bilang ng Transaksyon",
+      "expectedAnnualTransactionAmount": "Inaasahang Taunang Halaga ng Transaksyon"
+    },
+    "updateEmail": {
+      "errors": {
+        "invalidEmail": "Mangyaring maglagay ng wastong email address",
+        "emailNotChanged": "Mangyaring maglagay ng ibang email address mula sa inyong kasalukuyang email."
+      }
+    },
+    "otpVerification": {
+      "title": "OTP Verification",
+      "description": "Mangyaring ilagay ang OTP na ipinadala sa inyong email upang ma-verify ang inyong bagong email address.",
+      "sentTo": "Ang code ay ipinadala sa: {emailAddress}",
+      "success": {
+        "message": "Matagumpay na na-update ang inyong email address."
+      },
+      "errors": {
+        "invalidOtp": "Mangyaring maglagay ng wastong OTP",
+        "unableToVerifyEmailOtp": "Hindi ma-verify ang OTP. Mangyaring siguruhing wasto ang OTP na inilagay mula sa inyong email."
+      }
+    }
+  },
+  "transactionHistory": {
+    "title": "Transaction History",
+    "searchHint": "Maghanap ng mga transaksyon",
+    "noTransactions": "Walang nakitang transaksyon",
+    "sort": {
+      "title": "Ayusin ayon sa",
+      "label": "Ayusin",
+      "highToLow": "Mataas hanggang Mababa",
+      "lowToHigh": "Mababa hanggang Mataas",
+      "newestFirst": "Pinakabago Muna",
+      "oldestFirst": "Pinakaluma Muna"
+    },
+    "filter": {
+      "title": "I-filter ayon sa",
+      "label": "Filter",
+      "noFilterOptions": "Walang available na filter options, mangyaring subukan muli mamaya."
+    },
+    "errors": {
+      "unableToGetTransactionHistory": "Hindi ma-load ang mga transaksyon. Mangyaring tingnan ang inyong internet connection at subukan muli.",
+      "unableToGetTransactionHistoryDetails": "Hindi ma-load ang mga detalye ng transaksyon. Mangyaring tingnan ang inyong internet connection at subukan muli.",
+      "transactionReferenceNotFound": "Hindi nakita ang transaction reference. Hindi ma-download ang resibo.",
+      "transactionReferenceNotFoundShare": "Hindi nakita ang transaction reference. Hindi ma-share ang resibo.",
+      "unableToDownloadOrShareTransactionHistoryReceipt": "Hindi ma-download ang resibo. Mangyaring tingnan ang inyong internet connection at subukan muli."
+    },
+    "shareReceiptText": "Resibo ng Transaksyon",
+    "noTransactionsSubtitle": "Lalabas ang inyong mga transaksyon dito kapag nagsimula na kayong magpadala ng pera."
+  },
+  "ourBranches": {
+    "title": "Mga Sangay Namin",
+    "noBranches": "Walang available na impormasyon tungkol sa mga sangay",
+    "searchHint": "Maghanap ng sangay sa pamamagitan ng pangalan o lokasyon"
+  },
+  "notifications": {
+    "title": "Mga Notipikasyon",
+    "noNotifications": "Walang available na notipikasyon",
+    "errors": {
+      "unableToGetNotifications": "Hindi makuha ang mga notipikasyon. Mangyaring subukan muli."
+    },
+    "noNotificationsSubtitle": "Wala nang bago para sa inyo! Balikan mamaya para sa mga update."
+  },
+  "changeMpin": {
+    "currentMpin": {
+      "title": "Ilagay ang inyong kasalukuyang MPIN",
+      "error": "Hindi tugma ang MPIN. Mangyaring ilagay muli ang tamang MPIN."
+    },
+    "newMpin": {
+      "title": "Ilagay ang inyong bagong MPIN",
+      "errors": {
+        "sequentialDigits": "Ang MPIN ay hindi maaaring maglaman ng sunud-sunod na digits. Pumili ng ibang MPIN.",
+        "repeatedDigits": "Ang MPIN ay hindi maaaring maglaman ng paulit-ulit na digits. Pumili ng ibang MPIN.",
+        "invalidMpin": "Ang MPIN ay dapat na 6 digits. Mangyaring maglagay ng wastong MPIN.",
+        "sameAsCurrentMpin": "Ang bagong MPIN ay hindi maaaring kapareho ng kasalukuyang MPIN. Pumili ng ibang MPIN."
+      }
+    },
+    "verifyMpin": {
+      "title": "Kumpirmahin ang inyong bagong MPIN",
+      "success": {
+        "title": "Matagumpay na Nabago ang MPIN",
+        "message": "Matagumpay na nabago ang inyong MPIN, maaari na ninyong gamitin ang bagong MPIN upang mag-login."
+      },
+      "errors": {
+        "mismatchVerifyMpin": "Hindi tugma ang mga MPIN. Mangyaring ilagay muli upang kumpirmahin ang inyong bagong MPIN."
+      }
+    }
+  },
+  "core": {
+    "otp": {
+      "title": "OTP Verification",
+      "verificationCode": {
+        "label": "One-Time Password (OTP)",
+        "placeholder": "Ilagay ang OTP"
+      },
+      "resendOtp": "Ipadala Muli ang OTP"
+    },
+    "mpin": {
+      "title": "Kumusta, {userName}!",
+      "subtitle": "Mangyaring ilagay ang 6-digit na MPIN",
+      "loginWithOtp": "Mag-login gamit ang OTP",
+      "forgotMpin": "Nakalimutan ang MPIN?",
+      "biometricLogin": "Gamitin ang Fingerprint para mag-login",
+      "biometricSubtitle": "Ligtas at Mas Mabilis",
+      "biometricReason": "Mag-authenticate upang ma-access ang inyong account"
+    },
+    "sendMoney": {
+      "topField": {
+        "label": "Ipinapadala Ninyo"
+      },
+      "bottomField": {
+        "label": "Matatanggap ng Recipient"
+      },
+      "rateIsNotAvailable": "Hindi available ang rate",
+      "calculating": "Mangyaring maghintay habang kinakalkula namin ang halaga",
+      "currencyOrCountry": "Currency o Bansa"
+    },
+    "greeting": {
+      "goodMorning": "Magandang Umaga",
+      "goodAfternoon": "Magandang Hapon",
+      "goodEvening": "Magandang Gabi",
+      "goodNight": "Magandang Gabi"
+    },
+    "selectablePage": {
+      "title": "Pumili ng {title}",
+      "searchPlaceholder": "Maghanap ng {title}",
+      "noResults": "Walang nakitang {title}"
+    },
+    "actionTypes": {
+      "select": "Pumili ng {fieldName}",
+      "enter": "Ilagay ang {fieldName}"
+    },
+    "stepper": {
+      "step1": "Kalkulahin\nang Halaga",
+      "step2": "Pumili ng\nRecipient",
+      "step3": "Magbayad"
+    },
+    "beneficiaryHeader": {
+      "country": "Bansa",
+      "transferType": "Transfer Type",
+      "bankOrAgent": "Bangko / Agent"
+    },
+    "paymentResult": {
+      "title": "Resulta ng Bayad",
+      "success": {
+        "title": "Matagumpay ang Bayad!",
+        "message": "Matagumpay na naproseso ang inyong bayad."
+      },
+      "failure": {
+        "title": "Hindi Matagumpay ang Bayad",
+        "message": "May naganap na isyu sa pagproseso ng inyong bayad. Mangyaring subukan muli."
+      },
+      "fields": {
+        "totalAmount": "Kabuuang Halaga",
+        "referenceNo": "Reference No.",
+        "receiver": "Tatanggap",
+        "paymentMethod": "Payment Method",
+        "dateTime": "Petsa at Oras"
+      }
+    },
+    "updateEmail": {
+      "title": "I-update ang Email",
+      "description": "Mangyaring ilagay ang inyong bagong email address sa ibaba. Magpapadala kami ng verification OTP sa inyong bagong email upang kumpirmahin ang pagbabago.",
+      "emailField": {
+        "label": "Email Address",
+        "hint": "Ilagay ang inyong bagong email address"
+      }
+    },
+    "filters": {
+      "countries": "Mga Bansa {length}",
+      "beneficiaries": "Mga Beneficiary {length}"
+    },
+    "transactionBottomSheet": {
+      "totalAmount": "Kabuuang Halaga",
+      "receiveAmount": "Halagang Matatanggap",
+      "transactionDetails": "Mga Detalye ng Transaksyon",
+      "date": "Petsa",
+      "referenceID": "Reference ID",
+      "paymentMethod": "Payment Method",
+      "beneficiaryDetails": "Mga Detalye ng Beneficiary",
+      "beneficiary": "Beneficiary",
+      "transferMode": "Mode ng Transfer",
+      "bankAccountNumber": "Bank Account Number",
+      "bankName": "Pangalan ng Bangko"
+    },
+    "tncConsent": {
+      "prefix": "Nabasa ko at tinatanggap ang ",
+      "termsAndConditions": "Mga Tuntunin at Kundisyon"
+    },
+    "languageDialog": {
+      "title": "Piliin ang inyong gustong wika"
+    },
+    "languages": {
+      "english": "English",
+      "arabic": "العربية",
+      "malayalam": "മലയാളം",
+      "hindi": "हिन्दी",
+      "tagalog": "Filipino"
+    },
+    "validation": {
+      "empty": "Kinakailangan ang {fieldName}",
+      "tooShort": "Masyadong maikli ang {fieldName}",
+      "tooLong": "Masyadong mahaba ang {fieldName}",
+      "invalidFormat": "Mangyaring pumili ng wastong {fieldName}"
+    },
+    "securityNote": "Ang inyong impormasyon ay encrypted at ligtas"
+  },
+  "buttons": {
+    "save": "I-save",
+    "update": "I-update",
+    "next": "Susunod",
+    "continue": "Magpatuloy",
+    "getStarted": "Magsimula",
+    "addNewBeneficiary": "Magdagdag ng Beneficiary",
+    "requestOtp": "Humingi ng OTP",
+    "logout": "Mag-logout",
+    "confirm": "Kumpirmahin",
+    "slideToConfirm": "I-slide para Kumpirmahin",
+    "ok": "OK",
+    "okay": "Okay",
+    "cancel": "Kanselahin",
+    "delete": "Burahin",
+    "verifyEmail": "I-verify ang Email",
+    "retry": "Subukan Muli",
+    "apply": "I-apply",
+    "share": "I-share",
+    "download": "I-download"
+  },
+  "errors": {
+    "networkError": "Network error. Mangyaring tingnan ang inyong internet connection at subukan muli.",
+    "serverError": "Server error. Mangyaring subukan muli mamaya.",
+    "unknownError": "May naganap na hindi kilalang error. Mangyaring subukan muli.",
+    "orElse": "May naganap na error. Mangyaring subukan muli.",
+    "biometricNotEnrolled": "Walang naka-enroll na biometrics sa device na ito. Mangyaring i-set up ang biometrics sa device settings ninyo."
+  },
+  "validation": {
+    "home": {
+      "amountRequired": "Mangyaring maglagay ng halaga upang magpatuloy",
+      "transferTypeRequired": "Mangyaring pumili ng transfer type upang magpatuloy",
+      "paymentMethodRequired": "Mangyaring pumili ng payment method upang magpatuloy"
+    },
+    "summary": {
+      "beneficiaryNotReady": "Hindi pa handa ang mga detalye ng beneficiary, mangyaring maghintay",
+      "amountRequired": "Mangyaring maglagay ng halaga ng transfer upang kumpirmahin",
+      "paymentMethodRequired": "Mangyaring pumili ng payment method upang kumpirmahin"
+    }
+  },
+  "network": {
+    "offline": {
+      "bannerMessage": "Walang internet connection"
+    },
+    "online": {
+      "bannerMessage": "Bumalik na ang online!"
+    },
+    "error": {
+      "connectionError": {
+        "title": "Connection Error",
+        "message": "Walang internet connection. Mangyaring tingnan ang inyong network settings at subukan muli."
+      },
+      "requestTimeout": {
+        "title": "Request Timeout",
+        "message": "Masyadong matagal ang request. Mangyaring subukan muli."
+      },
+      "serverError": {
+        "title": "Server Error",
+        "message": "Nakakaranas kami ng hindi inaasahang teknikal na isyu. Pinagtatrabaho ito ng aming team. Mangyaring subukan muli mamaya."
+      },
+      "noInternetTitle": "Walang Internet Connection",
+      "noInternetDescription": "Mangyaring tingnan ang inyong network settings at subukan muli.",
+      "dataLoadTitle": "May Naganap na Error",
+      "dataLoadDescription": "Hindi namin ma-load ang data. Mangyaring subukan muli.",
+      "retryButton": "Subukan Muli"
+    }
+  },
+  "appUpgrade": {
+    "defaultTitle": "May Bagong Update",
+    "defaultMessage": "Available na ang bagong bersyon ng app. I-update na ngayon para sa pinakabagong pagpapabuti at mga security enhancement.",
+    "forceLabel": "Kinakailangang Update",
+    "whatsNew": "Mga Bago",
+    "updateButton": "I-update Na",
+    "skipButton": "Ipaalala sa akin mamaya",
+    "errorOpeningStore": "Hindi mabuksan ang store. Mangyaring i-update nang manu-mano."
+  },
+  "security": {
+    "blocked": {
+      "title": "Access Restricted",
+      "subtitle": "Your device does not meet our security requirements. For your protection, access to this application has been blocked.",
+      "exitButton": "Exit App",
+      "threats": {
+        "jailbreakOrRoot": "Jailbreak or root access detected on this device",
+        "developerMode": "Developer mode is enabled — please disable it",
+        "emulator": "This app cannot run on an emulator or simulator",
+        "usbDebugging": "USB debugging is enabled — please disable it",
+                "mockLocation": "Mock location is enabled — please disable it"
+      }
+    }
+  }
+}

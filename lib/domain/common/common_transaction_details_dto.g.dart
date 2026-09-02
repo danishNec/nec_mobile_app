@@ -1,0 +1,266 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'common_transaction_details_dto.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_CommonTransactionDetailsDto _$CommonTransactionDetailsDtoFromJson(
+  Map<String, dynamic> json,
+) => _CommonTransactionDetailsDto(
+  success: json['success'] as String?,
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : TransactionDetailData.fromJson(json['data'] as Map<String, dynamic>),
+);
+
+Map<String, dynamic> _$CommonTransactionDetailsDtoToJson(
+  _CommonTransactionDetailsDto instance,
+) => <String, dynamic>{
+  'success': instance.success,
+  'message': instance.message,
+  'data': instance.data,
+};
+
+_TransactionDetailData _$TransactionDetailDataFromJson(
+  Map<String, dynamic> json,
+) => _TransactionDetailData(
+  transaction: json['transaction'] == null
+      ? null
+      : TransactionDetail.fromJson(json['transaction'] as Map<String, dynamic>),
+);
+
+Map<String, dynamic> _$TransactionDetailDataToJson(
+  _TransactionDetailData instance,
+) => <String, dynamic>{'transaction': instance.transaction};
+
+_TransactionDetail _$TransactionDetailFromJson(Map<String, dynamic> json) =>
+    _TransactionDetail(
+      transactionReference: (json['transaction_reference'] as num?)?.toInt(),
+      beneficiaryName: json['beneficiary_name'] as String?,
+      moduleCode: (json['module_code'] as num?)?.toInt(),
+      locationCode: (json['location_code'] as num?)?.toInt(),
+      branchName: json['branch_name'] as String?,
+      routingBankCode: (json['routing_bank_code'] as num?)?.toInt(),
+      disbursalModeId: (json['disbursal_mode_id'] as num?)?.toInt(),
+      beneficiaryStateId: (json['beneficiary_state_id'] as num?)?.toInt(),
+      beneficiaryCityId: (json['beneficiary_city_id'] as num?)?.toInt(),
+      beneficiaryCode: (json['beneficiary_code'] as num?)?.toInt(),
+      memberCode: (json['member_code'] as num?)?.toInt(),
+      eId: json['e_id'] as String?,
+      transactionDate: json['transaction_date'] == null
+          ? null
+          : DateTime.parse(json['transaction_date'] as String),
+      sourceCurrencyCode: json['source_currency_code'] as String?,
+      sourceCurrencyName: json['source_currency_name'] as String?,
+      destinationCurrencyCode: json['destination_currency_code'] as String?,
+      destinationCurrencyName: json['destination_currency_name'] as String?,
+      sourceCountryCode: json['source_country_code'] as String?,
+      sourceCountryName: json['source_country_name'] as String?,
+      destinationCountryCode: json['destination_country_code'] as String?,
+      destinationCountryName: json['destination_country_name'] as String?,
+      sourceAmount: (json['source_amount'] as num?)?.toInt(),
+      localAmount: (json['local_amount'] as num?)?.toInt(),
+      rate: (json['rate'] as num?)?.toDouble(),
+      destinationAmount: (json['destination_amount'] as num?)?.toInt(),
+      benePay: (json['bene_pay'] as num?)?.toDouble(),
+      fCCommission: (json['f_c_commission'] as num?)?.toInt(),
+      commission: (json['commission'] as num?)?.toInt(),
+      taxPercentage: (json['tax_percentage'] as num?)?.toInt(),
+      taxCollected: (json['tax_collected'] as num?)?.toInt(),
+      payAmount: (json['pay_amount'] as num?)?.toInt(),
+      receiveAmount: (json['receive_amount'] as num?)?.toDouble(),
+      productCode: (json['product_code'] as num?)?.toInt(),
+      product: json['product'] as String?,
+      transferModeCode: json['transfer_mode_code'] as String?,
+      transferMode: json['transfer_mode'] as String?,
+      paymentMode: json['payment_mode'] as String?,
+      routeType: json['route_type'] as String?,
+      routeCode: json['route_code'] as String?,
+      purpose: json['purpose'] as String?,
+      purposeCode: json['purpose_code'] as String?,
+      incomeSource: json['income_source'] as String?,
+      incomeSourceCode: json['income_source_code'] as String?,
+      status: json['status'] as String?,
+      appStatus: json['app_status'] as String?,
+      iSDownload: json['i_s_download'] as bool?,
+      createdOn: json['created_on'] == null
+          ? null
+          : DateTime.parse(json['created_on'] as String),
+      beneficiaryById: json['beneficiary_by_id'] == null
+          ? null
+          : BeneficiaryDetail.fromJson(
+              json['beneficiary_by_id'] as Map<String, dynamic>,
+            ),
+    );
+
+Map<String, dynamic> _$TransactionDetailToJson(_TransactionDetail instance) =>
+    <String, dynamic>{
+      'transaction_reference': instance.transactionReference,
+      'beneficiary_name': instance.beneficiaryName,
+      'module_code': instance.moduleCode,
+      'location_code': instance.locationCode,
+      'branch_name': instance.branchName,
+      'routing_bank_code': instance.routingBankCode,
+      'disbursal_mode_id': instance.disbursalModeId,
+      'beneficiary_state_id': instance.beneficiaryStateId,
+      'beneficiary_city_id': instance.beneficiaryCityId,
+      'beneficiary_code': instance.beneficiaryCode,
+      'member_code': instance.memberCode,
+      'e_id': instance.eId,
+      'transaction_date': instance.transactionDate?.toIso8601String(),
+      'source_currency_code': instance.sourceCurrencyCode,
+      'source_currency_name': instance.sourceCurrencyName,
+      'destination_currency_code': instance.destinationCurrencyCode,
+      'destination_currency_name': instance.destinationCurrencyName,
+      'source_country_code': instance.sourceCountryCode,
+      'source_country_name': instance.sourceCountryName,
+      'destination_country_code': instance.destinationCountryCode,
+      'destination_country_name': instance.destinationCountryName,
+      'source_amount': instance.sourceAmount,
+      'local_amount': instance.localAmount,
+      'rate': instance.rate,
+      'destination_amount': instance.destinationAmount,
+      'bene_pay': instance.benePay,
+      'f_c_commission': instance.fCCommission,
+      'commission': instance.commission,
+      'tax_percentage': instance.taxPercentage,
+      'tax_collected': instance.taxCollected,
+      'pay_amount': instance.payAmount,
+      'receive_amount': instance.receiveAmount,
+      'product_code': instance.productCode,
+      'product': instance.product,
+      'transfer_mode_code': instance.transferModeCode,
+      'transfer_mode': instance.transferMode,
+      'payment_mode': instance.paymentMode,
+      'route_type': instance.routeType,
+      'route_code': instance.routeCode,
+      'purpose': instance.purpose,
+      'purpose_code': instance.purposeCode,
+      'income_source': instance.incomeSource,
+      'income_source_code': instance.incomeSourceCode,
+      'status': instance.status,
+      'app_status': instance.appStatus,
+      'i_s_download': instance.iSDownload,
+      'created_on': instance.createdOn?.toIso8601String(),
+      'beneficiary_by_id': instance.beneficiaryById,
+    };
+
+_BeneficiaryDetail _$BeneficiaryDetailFromJson(
+  Map<String, dynamic> json,
+) => _BeneficiaryDetail(
+  eId: json['e_id'] as String?,
+  beneficiaryCode: (json['beneficiary_code'] as num?)?.toInt(),
+  beneficiaryGender: json['beneficiary_gender'] as String?,
+  beneficiaryAddress1: json['beneficiary_address1'] as String?,
+  beneficiaryAddress2: json['beneficiary_address2'] as String?,
+  beneficiaryAddress3: json['beneficiary_address3'] as String?,
+  beneficiaryAddress4: json['beneficiary_address4'] as String?,
+  beneficiaryAddress5: json['beneficiary_address5'] as String?,
+  beneficiaryState: json['beneficiary_state'] as String?,
+  beneficiaryCity: json['beneficiary_city'] as String?,
+  beneficiaryCityId: (json['beneficiary_city_id'] as num?)?.toInt(),
+  beneficiaryZipCode: json['beneficiary_zip_code'] as String?,
+  beneficiaryIdtypeName: json['beneficiary_idtype_name'] as String?,
+  beneficiaryIdtypeId: (json['beneficiary_idtype_id'] as num?)?.toInt(),
+  beneficiaryIdtypeCode: json['beneficiary_idtype_code'] as String?,
+  beneficiaryIdtypeCBCode: json['beneficiary_idtype_c_b_code'] as String?,
+  beneficiaryPhone: json['beneficiary_phone'] as String?,
+  beneficiaryMobileCode: (json['beneficiary_mobile_code'] as num?)?.toInt(),
+  beneficiaryMobile: json['beneficiary_mobile'] as String?,
+  beneficiaryEmail: json['beneficiary_email'] as String?,
+  beneficiaryFax: json['beneficiary_fax'] as String?,
+  beneficiaryCountryCode: json['beneficiary_country_code'] as String?,
+  beneficiaryCountryName: json['beneficiary_country_name'] as String?,
+  beneficiaryNationalityCode: json['beneficiary_nationality_code'] as String?,
+  beneficiaryNationalityName: json['beneficiary_nationality_name'] as String?,
+  beneficiaryNearestAirportCode:
+      json['beneficiary_nearest_airport_code'] as String?,
+  beneficiaryNearestAirportName:
+      json['beneficiary_nearest_airport_name'] as String?,
+  beneficiaryBankCode: json['beneficiary_bank_code'] as String?,
+  beneficiaryBankName: json['beneficiary_bank_name'] as String?,
+  beneficiaryBranchCode: json['beneficiary_branch_code'] as String?,
+  beneficiaryBranchName: json['beneficiary_branch_name'] as String?,
+  beneficiaryBranchAddress: json['beneficiary_branch_address'] as String?,
+  beneficiaryBranchAddress2: json['beneficiary_branch_address2'] as String?,
+  beneficiaryBranchState: json['beneficiary_branch_state'] as String?,
+  beneficiaryBranchStateCode: json['beneficiary_branch_state_code'] as String?,
+  beneficiaryBranchCity: json['beneficiary_branch_city'] as String?,
+  beneficiaryBranchCityCode: json['beneficiary_branch_city_code'] as String?,
+  beneficiaryBranchLandMark: json['beneficiary_branch_land_mark'] as String?,
+  beneficiaryBranchZipCode: json['beneficiary_branch_zip_code'] as String?,
+  beneficaryRelation: json['beneficary_relation'] as String?,
+  beneficaryRelationName: json['beneficary_relation_name'] as String?,
+  beneficiaryBankAccountNumber:
+      json['beneficiary_bank_account_number'] as String?,
+  beneficiaryCategoryCode: json['beneficiary_category_code'] as String?,
+  routeType: json['route_type'] as String?,
+  routeCode: json['route_code'] as String?,
+  productCode: (json['product_code'] as num?)?.toInt(),
+  productName: json['product_name'] as String?,
+  status: json['status'] as String?,
+  disbursalModeId: (json['disbursal_mode_id'] as num?)?.toInt(),
+  disbursalMode: json['disbursal_mode'] as String?,
+  currencyCode: json['currency_code'] as String?,
+  beneficiaryCategory: json['beneficiary_category'] as String?,
+);
+
+Map<String, dynamic> _$BeneficiaryDetailToJson(
+  _BeneficiaryDetail instance,
+) => <String, dynamic>{
+  'e_id': instance.eId,
+  'beneficiary_code': instance.beneficiaryCode,
+  'beneficiary_gender': instance.beneficiaryGender,
+  'beneficiary_address1': instance.beneficiaryAddress1,
+  'beneficiary_address2': instance.beneficiaryAddress2,
+  'beneficiary_address3': instance.beneficiaryAddress3,
+  'beneficiary_address4': instance.beneficiaryAddress4,
+  'beneficiary_address5': instance.beneficiaryAddress5,
+  'beneficiary_state': instance.beneficiaryState,
+  'beneficiary_city': instance.beneficiaryCity,
+  'beneficiary_city_id': instance.beneficiaryCityId,
+  'beneficiary_zip_code': instance.beneficiaryZipCode,
+  'beneficiary_idtype_name': instance.beneficiaryIdtypeName,
+  'beneficiary_idtype_id': instance.beneficiaryIdtypeId,
+  'beneficiary_idtype_code': instance.beneficiaryIdtypeCode,
+  'beneficiary_idtype_c_b_code': instance.beneficiaryIdtypeCBCode,
+  'beneficiary_phone': instance.beneficiaryPhone,
+  'beneficiary_mobile_code': instance.beneficiaryMobileCode,
+  'beneficiary_mobile': instance.beneficiaryMobile,
+  'beneficiary_email': instance.beneficiaryEmail,
+  'beneficiary_fax': instance.beneficiaryFax,
+  'beneficiary_country_code': instance.beneficiaryCountryCode,
+  'beneficiary_country_name': instance.beneficiaryCountryName,
+  'beneficiary_nationality_code': instance.beneficiaryNationalityCode,
+  'beneficiary_nationality_name': instance.beneficiaryNationalityName,
+  'beneficiary_nearest_airport_code': instance.beneficiaryNearestAirportCode,
+  'beneficiary_nearest_airport_name': instance.beneficiaryNearestAirportName,
+  'beneficiary_bank_code': instance.beneficiaryBankCode,
+  'beneficiary_bank_name': instance.beneficiaryBankName,
+  'beneficiary_branch_code': instance.beneficiaryBranchCode,
+  'beneficiary_branch_name': instance.beneficiaryBranchName,
+  'beneficiary_branch_address': instance.beneficiaryBranchAddress,
+  'beneficiary_branch_address2': instance.beneficiaryBranchAddress2,
+  'beneficiary_branch_state': instance.beneficiaryBranchState,
+  'beneficiary_branch_state_code': instance.beneficiaryBranchStateCode,
+  'beneficiary_branch_city': instance.beneficiaryBranchCity,
+  'beneficiary_branch_city_code': instance.beneficiaryBranchCityCode,
+  'beneficiary_branch_land_mark': instance.beneficiaryBranchLandMark,
+  'beneficiary_branch_zip_code': instance.beneficiaryBranchZipCode,
+  'beneficary_relation': instance.beneficaryRelation,
+  'beneficary_relation_name': instance.beneficaryRelationName,
+  'beneficiary_bank_account_number': instance.beneficiaryBankAccountNumber,
+  'beneficiary_category_code': instance.beneficiaryCategoryCode,
+  'route_type': instance.routeType,
+  'route_code': instance.routeCode,
+  'product_code': instance.productCode,
+  'product_name': instance.productName,
+  'status': instance.status,
+  'disbursal_mode_id': instance.disbursalModeId,
+  'disbursal_mode': instance.disbursalMode,
+  'currency_code': instance.currencyCode,
+  'beneficiary_category': instance.beneficiaryCategory,
+};
