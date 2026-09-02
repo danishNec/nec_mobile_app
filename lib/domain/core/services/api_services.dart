@@ -785,8 +785,64 @@ class HttpLogger {
       b.writeln('│');
     }
 
-    b.write(_bot);
+    b
+      ..writeln('│  CURL')
+      ..writeln(_thin);
+    for (final line in _buildCurl(request, multiline: true).split('\n')) {
+      b.writeln('│  $line');
+    }
+    b
+      ..writeln('│')
+      ..write(_bot);
     log('\n${b.toString()}', name: 'HTTP');
+
+    // Single-line, grep-friendly copy of the same curl, emitted on multiple
+    // channels so it shows up wherever you are watching:
+    //   • `dart:developer.log` (name: CURL) — the channel `flutter run` reads
+    //     on physical iOS devices via the Dart VM service, and it also lands
+    //     in Console.app under the Runner process.
+    //   • `debugPrint` — forwards to the Xcode console / Android logcat as
+    //     `flutter: ...` (throttled, may wrap very long lines).
+    // Filter with `NEC-CURL` in any of those views.
+    final curl = _buildCurl(request);
+    log('$curlTag ${request.method} ${request.url.path}\n$curl', name: 'CURL');
+    debugPrint('$curlTag ${request.method} ${request.url.path}');
+    debugPrint(curl);
+  }
+
+  /// Unique marker prefixing every single-line curl log — filter the console
+  /// with `grep "NEC-CURL"` (or your IDE's log filter) to see only these.
+  static const String curlTag = 'NEC-CURL »';
+
+  /// Builds a copy-paste-ready `curl` command for [request] so the exact call
+  /// can be replayed from a terminal. Uses the real (unredacted) headers —
+  /// debug builds only, so the token never leaks in release.
+  ///
+  /// [multiline] joins args with `\` + newline for readability inside the log
+  /// box; the default single-line form is easier to select and paste.
+  static String _buildCurl(http.BaseRequest request, {bool multiline = false}) {
+    String q(String s) => "'${s.replaceAll("'", "'\\''")}'";
+
+    final parts = <String>['curl -i -X ${request.method}'];
+
+    request.headers.forEach((key, value) {
+      if (key.toLowerCase() == 'x-retry-attempt') return;
+      parts.add('-H ${q('$key: $value')}');
+    });
+
+    if (request is http.Request && request.body.isNotEmpty) {
+      parts.add('--data ${q(request.body)}');
+    } else if (request is http.MultipartRequest) {
+      request.fields.forEach((key, value) {
+        parts.add('-F ${q('$key=$value')}');
+      });
+      for (final file in request.files) {
+        parts.add('-F ${q('${file.field}=@<path-to-${file.filename ?? file.field}>')}');
+      }
+    }
+
+    parts.add(q(request.url.toString()));
+    return parts.join(multiline ? ' \\\n  ' : ' ');
   }
 
   static void logResponse({
