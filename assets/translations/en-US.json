@@ -28,7 +28,9 @@
       "label": "Mobile Number",
       "placeholder": "Enter your Mobile Number",
       "validationError": "Please enter a valid 8-digit mobile number"
-    }
+    },
+    "ekeySuccess": "eKey login successful",
+    "ekeyFailed": "eKey login failed"
   },
   "otp": {
     "title": "Enter OTP",
@@ -609,8 +611,9 @@
     "verifyEmail": "Verify Email",
     "retry": "Retry",
     "apply": "Apply",
-    "share" : "Share",
-    "download" : "Download"
+    "share": "Share",
+    "download": "Download",
+    "loginWithEkey": "Login with eKey"
   },
   "errors": {
     "networkError": "Network error. Please check your internet connection and try again.",
@@ -677,7 +680,7 @@
         "developerMode": "Developer mode is enabled — please disable it",
         "emulator": "This app cannot run on an emulator or simulator",
         "usbDebugging": "USB debugging is enabled — please disable it",
-                "mockLocation": "Mock location is enabled — please disable it"
+        "mockLocation": "Mock location is enabled — please disable it"
       }
     }
   }

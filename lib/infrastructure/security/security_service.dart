@@ -34,6 +34,15 @@ class SecurityService {
   Future<void> runChecks() async {
     if (!Platform.isIOS && !Platform.isAndroid) return;
 
+    // Debug builds are for development on emulators / simulators / rooted test
+    // devices with USB debugging — none of the device-integrity checks apply.
+    // Release builds enforce everything below.
+    if (kDebugMode) {
+      _currentThreats = {};
+      if (!_controller.isClosed) _controller.add({});
+      return;
+    }
+
     final threats = <SecurityThreat>{};
 
     // Jailbreak (iOS) / Root (Android)
@@ -57,15 +66,13 @@ class SecurityService {
       }
     } catch (_) {}
 
-    // Emulator / Simulator — blocked in release builds only so devs can test
-    if (!kDebugMode) {
-      try {
-        final isPhysical = Platform.isAndroid
-            ? (await _deviceInfo.androidInfo).isPhysicalDevice
-            : (await _deviceInfo.iosInfo).isPhysicalDevice;
-        if (!isPhysical) threats.add(SecurityThreat.emulator);
-      } catch (_) {}
-    }
+    // Emulator / Simulator
+    try {
+      final isPhysical = Platform.isAndroid
+          ? (await _deviceInfo.androidInfo).isPhysicalDevice
+          : (await _deviceInfo.iosInfo).isPhysicalDevice;
+      if (!isPhysical) threats.add(SecurityThreat.emulator);
+    } catch (_) {}
 
     // Mock location — indicates GPS spoofing tools
     try {

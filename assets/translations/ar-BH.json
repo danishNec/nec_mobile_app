@@ -28,7 +28,9 @@
       "label": "رقم الجوال",
       "placeholder": "أدخل رقم جوالك",
       "validationError": "يرجى إدخال رقم جوال صحيح مكون من 8 أرقام"
-    }
+    },
+    "ekeySuccess": "تم تسجيل الدخول عبر eKey بنجاح",
+    "ekeyFailed": "فشل تسجيل الدخول عبر eKey"
   },
   "otp": {
     "title": "أدخل رمز التحقق",
@@ -608,7 +610,8 @@
     "retry": "إعادة المحاولة",
     "apply": "تطبيق",
     "share": "مشاركة",
-    "download": "تحميل"
+    "download": "تحميل",
+    "loginWithEkey": "تسجيل الدخول عبر eKey"
   },
   "errors": {
     "networkError": "خطأ في الشبكة. يرجى التحقق من اتصال الإنترنت والمحاولة مرة أخرى.",
@@ -675,7 +678,7 @@
         "developerMode": "Developer mode is enabled — please disable it",
         "emulator": "This app cannot run on an emulator or simulator",
         "usbDebugging": "USB debugging is enabled — please disable it",
-                "mockLocation": "Mock location is enabled — please disable it"
+        "mockLocation": "Mock location is enabled — please disable it"
       }
     }
   }

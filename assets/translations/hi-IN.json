@@ -28,7 +28,9 @@
       "label": "मोबाइल नंबर",
       "placeholder": "अपना मोबाइल नंबर दर्ज करें",
       "validationError": "कृपया एक मान्य 8-अंकीय मोबाइल नंबर दर्ज करें"
-    }
+    },
+    "ekeySuccess": "eKey लॉगिन सफल",
+    "ekeyFailed": "eKey लॉगिन विफल"
   },
   "otp": {
     "title": "OTP दर्ज करें",
@@ -608,7 +610,8 @@
     "retry": "पुनः प्रयास करें",
     "apply": "लागू करें",
     "share": "साझा करें",
-    "download": "डाउनलोड करें"
+    "download": "डाउनलोड करें",
+    "loginWithEkey": "eKey से लॉगिन करें"
   },
   "errors": {
     "networkError": "नेटवर्क त्रुटि। कृपया अपना इंटरनेट कनेक्शन जाँचें और पुनः प्रयास करें।",
@@ -675,7 +678,7 @@
         "developerMode": "Developer mode is enabled — please disable it",
         "emulator": "This app cannot run on an emulator or simulator",
         "usbDebugging": "USB debugging is enabled — please disable it",
-                "mockLocation": "Mock location is enabled — please disable it"
+        "mockLocation": "Mock location is enabled — please disable it"
       }
     }
   }

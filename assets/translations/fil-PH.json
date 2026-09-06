@@ -28,7 +28,9 @@
       "label": "Mobile Number",
       "placeholder": "Ilagay ang inyong Mobile Number",
       "validationError": "Mangyaring maglagay ng wastong 8-digit na mobile number"
-    }
+    },
+    "ekeySuccess": "Matagumpay ang eKey login",
+    "ekeyFailed": "Nabigo ang eKey login"
   },
   "otp": {
     "title": "Ilagay ang OTP",
@@ -608,7 +610,8 @@
     "retry": "Subukan Muli",
     "apply": "I-apply",
     "share": "I-share",
-    "download": "I-download"
+    "download": "I-download",
+    "loginWithEkey": "Mag-login gamit ang eKey"
   },
   "errors": {
     "networkError": "Network error. Mangyaring tingnan ang inyong internet connection at subukan muli.",
@@ -675,7 +678,7 @@
         "developerMode": "Developer mode is enabled — please disable it",
         "emulator": "This app cannot run on an emulator or simulator",
         "usbDebugging": "USB debugging is enabled — please disable it",
-                "mockLocation": "Mock location is enabled — please disable it"
+        "mockLocation": "Mock location is enabled — please disable it"
       }
     }
   }

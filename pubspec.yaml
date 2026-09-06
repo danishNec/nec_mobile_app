@@ -69,6 +69,10 @@ dependencies:
   flutter_local_notifications: ^21.0.0
   package_info_plus: ^8.3.0
 
+  # eKey 2.0 app-to-app login (vendored native SDK).
+  ekey_flutter_sdk:
+    path: plugins/ekey_flutter_sdk
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

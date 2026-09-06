@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:ekey_flutter_sdk/ekey_flutter_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -55,6 +56,31 @@ class LoginPage extends HookWidget {
     // Tracks the previously synced identity type to guard against redundant
     // resetMask calls when the listener fires for unrelated state changes.
     final prevIdTypeRef = useRef<CommonSelectableItem?>(null);
+
+    // eKey 2.0 app-to-app login. The result arrives via the plugin's stream and
+    // via recoverPendingResult() on resume (Android can kill this page while the
+    // external eKey app is foreground, so the initiateLogin() Future isn't safe).
+    final ekeyHandledRef = useRef<String?>(null);
+    useOnAppLifecycleStateChange((_, current) {
+      if (current == AppLifecycleState.resumed) {
+        EkeyFlutterSdk.recoverPendingResult().then((r) {
+          if (r != null && context.mounted) {
+            _onEkeyResult(context, r, ekeyHandledRef);
+          }
+        });
+      }
+    });
+    useEffect(() {
+      EkeyFlutterSdk.recoverPendingResult().then((r) {
+        if (r != null && context.mounted) {
+          _onEkeyResult(context, r, ekeyHandledRef);
+        }
+      });
+      final sub = EkeyFlutterSdk.loginResults.listen((r) {
+        if (context.mounted) _onEkeyResult(context, r, ekeyHandledRef);
+      }, onError: (_) {});
+      return sub.cancel;
+    }, const []);
 
     return BlocConsumer<LoginBloc, LoginState>(
       listenWhen: (prev, curr) =>
@@ -376,6 +402,26 @@ class LoginPage extends HookWidget {
                                   const LoginEvent.requestOtpPressed(),
                                 ),
                               ),
+                              SizedBox(height: 12.h),
+                              AppButton(
+                                text: 'buttons.loginWithEkey'.tr(),
+                                backgroundColor: Colors.transparent,
+                                border: Border.all(
+                                  color: colorScheme.onPrimary.withValues(
+                                    alpha: 0.4,
+                                  ),
+                                  width: 1.5,
+                                ),
+                                textStyle: theme.textTheme.bodyMedium?.copyWith(
+                                  fontSize: 15.sp,
+                                  fontWeight: FontWeight.w600,
+                                  color: colorScheme.onPrimary,
+                                ),
+                                onTap: () {
+                                  FocusScope.of(context).unfocus();
+                                  EkeyFlutterSdk.initiateLogin();
+                                },
+                              ),
                     ],
                   ),
                 ),
@@ -385,5 +431,40 @@ class LoginPage extends HookWidget {
         );
       },
     );
+  }
+}
+
+/// Reacts to an eKey login outcome. Deduped so the stream and the recover call
+/// don't double-fire for the same result.
+void _onEkeyResult(
+  BuildContext context,
+  EkeyLoginResult result,
+  ObjectRef<String?> handledRef,
+) {
+  if (!context.mounted) return;
+  final key = '${result.status.name}:${result.redirectUri ?? result.error ?? ''}';
+  if (handledRef.value == key) return;
+  handledRef.value = key;
+
+  switch (result.status) {
+    case EkeyLoginStatus.completed:
+      // TODO: send code + state from result.redirectUri to the back-end
+      // token-exchange endpoint, then continue the authenticated session.
+      AppNotify.toast(
+        'login.ekeySuccess'.tr(),
+        type: AppToastType.success,
+        position: AppToastPosition.top,
+      );
+    case EkeyLoginStatus.failed:
+    case EkeyLoginStatus.unknown:
+      AppNotify.toast(
+        (result.error?.isNotEmpty ?? false)
+            ? result.error!
+            : 'login.ekeyFailed'.tr(),
+        type: AppToastType.error,
+        position: AppToastPosition.top,
+      );
+    case EkeyLoginStatus.cancelled:
+      break;
   }
 }

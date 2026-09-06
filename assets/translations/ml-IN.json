@@ -28,7 +28,9 @@
       "label": "മൊബൈൽ നമ്പർ",
       "placeholder": "നിങ്ങളുടെ മൊബൈൽ നമ്പർ നൽകുക",
       "validationError": "സാധുവായ 8 അക്ക മൊബൈൽ നമ്പർ നൽകുക"
-    }
+    },
+    "ekeySuccess": "eKey ലോഗിൻ വിജയകരം",
+    "ekeyFailed": "eKey ലോഗിൻ പരാജയപ്പെട്ടു"
   },
   "otp": {
     "title": "OTP നൽകുക",
@@ -608,7 +610,8 @@
     "retry": "വീണ്ടും ശ്രമിക്കുക",
     "apply": "പ്രയോഗിക്കുക",
     "share": "പങ്കിടുക",
-    "download": "ഡൗൺലോഡ് ചെയ്യുക"
+    "download": "ഡൗൺലോഡ് ചെയ്യുക",
+    "loginWithEkey": "eKey ഉപയോഗിച്ച് ലോഗിൻ ചെയ്യുക"
   },
   "errors": {
     "networkError": "നെറ്റ്‌വർക്ക് പിശക്. ഇന്റർനെറ്റ് കണക്ഷൻ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.",
@@ -675,7 +678,7 @@
         "developerMode": "Developer mode is enabled — please disable it",
         "emulator": "This app cannot run on an emulator or simulator",
         "usbDebugging": "USB debugging is enabled — please disable it",
-                "mockLocation": "Mock location is enabled — please disable it"
+        "mockLocation": "Mock location is enabled — please disable it"
       }
     }
   }
