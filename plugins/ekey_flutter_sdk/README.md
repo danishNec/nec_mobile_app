@@ -103,8 +103,11 @@ class _LoginState extends State<LoginScreen> with WidgetsBindingObserver {
 
   void _onResult(EkeyLoginResult r) {
     if (r.isCompleted) {
-      // POST r.redirectUri (contains code + state) and r.codeVerifier (iOS) to
-      // your back-end's token-exchange endpoint — integration guide §2.2.5.
+      // The SDK already did the token exchange — identity data is right here:
+      final name = r.claims?['name'];
+      final kyc  = r.kycData;            // null if no ekyc-bhr-* scopes granted
+      // (r.redirectUri + r.codeVerifier are still there if you'd rather run your
+      //  own exchange — integration guide §2.2.5.)
     } else if (r.isFailed) {
       // show r.error
     } // else: cancelled
@@ -122,10 +125,17 @@ class _LoginState extends State<LoginScreen> with WidgetsBindingObserver {
 | `EkeyFlutterSdk.loginResults` → `Stream<EkeyLoginResult>` | Every outcome, incl. one that landed after a process/Activity restart (replayed to the first subscriber). |
 | `EkeyFlutterSdk.recoverPendingResult()` → `Future<EkeyLoginResult?>` | Returns + clears a persisted result, else `null`. Call on startup and on `AppLifecycleState.resumed`. |
 | `EkeyLoginResult.status` | `completed` / `cancelled` / `failed` / `unknown`. |
+| `EkeyLoginResult.claims` | `Map<String, dynamic>?` — decoded ID token claims (completed). |
+| `EkeyLoginResult.kycData` | `Map<String, dynamic>?` — full eKYC payload; `null` if no `ekyc-bhr-*` scopes granted. |
 | `EkeyLoginResult.redirectUri` | Full `redirect_uri?code=…&state=…` (completed only). |
-| `EkeyLoginResult.codeVerifier` | PKCE verifier — **iOS only** (Android SDK doesn't surface it yet). |
+| `EkeyLoginResult.codeVerifier` | PKCE verifier (completed) — for running your own token exchange. |
 | `EkeyLoginResult.error` | Native error description (failed only). |
 | `.isCompleted` / `.isCancelled` / `.isFailed` | Convenience getters. |
+
+> The bundled SDK performs the OIDC token exchange **inside the app** (both
+> platforms), which is why `claims` / `kycData` come back directly. That implies
+> the `client_secret` ships in the app binary — see `EkeyTokenExchange` in the
+> native SDK for the trade-off.
 
 ---
 

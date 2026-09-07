@@ -118,16 +118,23 @@ Three rules:
 
 ## Step 5 — Use the result
 
-The sample only prints the fields. In a real app, on `completed`:
+On `completed` the SDK has already exchanged the code, so the identity data is
+on the result directly:
 
 ```dart
-final uri = Uri.parse(result.redirectUri!);
-myApi.exchangeEkeyCode(
-  code: uri.queryParameters['code'],
-  state: uri.queryParameters['state'],
-  codeVerifier: result.codeVerifier, // iOS only; null on Android
-);
+void _handle(EkeyLoginResult r) {
+  if (!r.isCompleted) return;
+
+  final claims = r.claims;    // Map<String, dynamic>?  — decoded ID token
+  final kyc    = r.kycData;   // Map<String, dynamic>?  — null if no ekyc-bhr-* scopes
+
+  final fullName = claims?['name'];
+  // hand `kyc` to your own screen / store it, etc.
+}
 ```
+
+Prefer your own back-end exchange instead? `r.redirectUri` (with `code`/`state`)
+and `r.codeVerifier` are still there.
 
 ---
 
@@ -149,8 +156,10 @@ can't complete.
 | Field | When | Meaning |
 |---|---|---|
 | `status` | always | `completed` / `cancelled` / `failed` / `unknown` |
+| `claims` | completed | `Map<String, dynamic>?` — decoded ID token claims |
+| `kycData` | completed | `Map<String, dynamic>?` — full eKYC payload; `null` without `ekyc-bhr-*` scopes |
 | `redirectUri` | completed | callback URL with `code` + `state` |
-| `codeVerifier` | completed (iOS only) | PKCE verifier |
+| `codeVerifier` | completed | PKCE verifier (for your own token exchange) |
 | `error` | failed | native error text |
 
 Getters: `isCompleted`, `isCancelled`, `isFailed`.

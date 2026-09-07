@@ -161,6 +161,10 @@ class EkeyFlutterSdkPlugin : FlutterPlugin, ActivityAware, MethodCallHandler,
                 is EkeyLoginResult.Completed -> {
                     map["status"] = "completed"
                     map["redirectUri"] = redirectUri.toString()
+                    map["codeVerifier"] = codeVerifier
+                    // EKYC payload — EkeySDK does the token exchange internally.
+                    map["claims"] = sanitize(identity.claims)
+                    identity.kycData?.let { map["kycData"] = sanitize(it) }
                 }
                 is EkeyLoginResult.Failed -> {
                     map["status"] = "failed"
@@ -169,6 +173,17 @@ class EkeyFlutterSdkPlugin : FlutterPlugin, ActivityAware, MethodCallHandler,
                 else -> map["status"] = "cancelled" // EkeyLoginResult.Cancelled
             }
             return map
+        }
+
+        /** Coerce the claims/kyc tree to types the Flutter StandardMessageCodec accepts. */
+        private fun sanitize(value: Any?): Any? = when (value) {
+            null -> null
+            is String, is Boolean, is Int, is Long, is Double -> value
+            is Float -> value.toDouble()
+            is Number -> value.toDouble()
+            is Map<*, *> -> value.entries.associate { (k, v) -> k.toString() to sanitize(v) }
+            is Iterable<*> -> value.map { sanitize(it) }
+            else -> value.toString()
         }
 
         private fun persistResult(context: Context, map: Map<String, Any?>) {

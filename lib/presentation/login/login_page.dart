@@ -448,13 +448,17 @@ void _onEkeyResult(
 
   switch (result.status) {
     case EkeyLoginStatus.completed:
-      // TODO: send code + state from result.redirectUri to the back-end
-      // token-exchange endpoint, then continue the authenticated session.
+      // EkeySDK already did the token exchange — identity + eKYC data is on the
+      // result. TODO: hand result.claims / result.kycData to the auth session.
       AppNotify.toast(
         'login.ekeySuccess'.tr(),
         type: AppToastType.success,
         position: AppToastPosition.top,
       );
+      final ekyc = result.kycData ?? result.claims;
+      if (ekyc != null && ekyc.isNotEmpty) {
+        _showEkycSheet(context, ekyc);
+      }
     case EkeyLoginStatus.failed:
     case EkeyLoginStatus.unknown:
       AppNotify.toast(
@@ -467,4 +471,82 @@ void _onEkeyResult(
     case EkeyLoginStatus.cancelled:
       break;
   }
+}
+
+/// Bottom sheet that lists the eKYC / ID-token fields returned by eKey.
+void _showEkycSheet(BuildContext context, Map<String, dynamic> data) {
+  final rows = _flattenEkyc(data);
+  final theme = Theme.of(context);
+
+  showModalBottomSheet<void>(
+    context: context,
+    isScrollControlled: true,
+    showDragHandle: true,
+    backgroundColor: theme.colorScheme.surface,
+    builder: (context) => DraggableScrollableSheet(
+      expand: false,
+      initialChildSize: 0.6,
+      maxChildSize: 0.9,
+      builder: (context, scrollController) => ListView(
+        controller: scrollController,
+        padding: EdgeInsets.fromLTRB(20.w, 0, 20.w, 24.h),
+        children: [
+          Text(
+            'eKYC data',
+            style: theme.textTheme.titleMedium?.copyWith(
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          SizedBox(height: 12.h),
+          for (final row in rows)
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 6.h),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    row.key,
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                  SizedBox(height: 2.h),
+                  SelectableText(
+                    row.value,
+                    style: theme.textTheme.bodyMedium,
+                  ),
+                ],
+              ),
+            ),
+        ],
+      ),
+    ),
+  );
+}
+
+/// Flattens the nested eKYC map into `dotted.path` → `value` string rows.
+List<MapEntry<String, String>> _flattenEkyc(Map<String, dynamic> data) {
+  final rows = <MapEntry<String, String>>[];
+  void walk(String prefix, Map<String, dynamic> map) {
+    map.forEach((key, value) {
+      final path = prefix.isEmpty ? key : '$prefix.$key';
+      if (value is Map) {
+        walk(path, value.cast<String, dynamic>());
+      } else if (value is List) {
+        for (var i = 0; i < value.length; i++) {
+          final item = value[i];
+          if (item is Map) {
+            walk('$path[$i]', item.cast<String, dynamic>());
+          } else {
+            rows.add(MapEntry('$path[$i]', '$item'));
+          }
+        }
+      } else {
+        rows.add(MapEntry(path, '$value'));
+      }
+    });
+  }
+
+  walk('', data);
+  return rows;
 }

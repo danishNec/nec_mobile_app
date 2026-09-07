@@ -6,7 +6,7 @@ enum EkeyLoginStatus {
   /// The user backed out / dismissed the login flow.
   cancelled,
 
-  /// The flow failed (e.g. OAuth `state` mismatch, no presenting screen).
+  /// The flow failed (e.g. OAuth `state` mismatch, token exchange failed).
   failed,
 
   /// Native returned a status this version of the plugin does not recognise.
@@ -21,6 +21,8 @@ class EkeyLoginResult {
     required this.status,
     this.redirectUri,
     this.codeVerifier,
+    this.claims,
+    this.kycData,
     this.error,
   });
 
@@ -31,12 +33,18 @@ class EkeyLoginResult {
   /// `state`). Present only when [status] is [EkeyLoginStatus.completed].
   final String? redirectUri;
 
-  /// PKCE code verifier for this attempt. Send it together with the `code` and
-  /// `state` from [redirectUri] to your back-end's token-exchange call
-  /// (integration guide §2.2.5).
-  ///
-  /// iOS only for now — Android's native SDK does not surface it yet.
+  /// PKCE code verifier for this attempt. Only needed if you run your own
+  /// token exchange instead of using [claims] / [kycData] below.
   final String? codeVerifier;
+
+  /// Decoded ID token claims (identity data — name, national ID, etc. per the
+  /// granted `id-*` scopes). EkeySDK performs the token exchange internally on
+  /// both platforms. Present only when [status] is [EkeyLoginStatus.completed].
+  final Map<String, dynamic>? claims;
+
+  /// Full KYC data payload (integration guide §6.2), if `ekyc-bhr-*` scopes were
+  /// granted. `null` when no KYC scopes were granted.
+  final Map<String, dynamic>? kycData;
 
   /// Human-readable native error description. Present only when [status] is
   /// [EkeyLoginStatus.failed] / [EkeyLoginStatus.unknown].
@@ -56,12 +64,22 @@ class EkeyLoginResult {
       ),
       redirectUri: map['redirectUri'] as String?,
       codeVerifier: map['codeVerifier'] as String?,
+      claims: _asStringMap(map['claims']),
+      kycData: _asStringMap(map['kycData']),
       error: map['error'] as String?,
     );
+  }
+
+  static Map<String, dynamic>? _asStringMap(Object? value) {
+    if (value is Map) {
+      return value.map((k, v) => MapEntry(k.toString(), v));
+    }
+    return null;
   }
 
   @override
   String toString() =>
       'EkeyLoginResult(status: $status, redirectUri: $redirectUri, '
-      'codeVerifier: $codeVerifier, error: $error)';
+      'codeVerifier: $codeVerifier, claims: ${claims?.keys.toList()}, '
+      'kycData: ${kycData?.keys.toList()}, error: $error)';
 }

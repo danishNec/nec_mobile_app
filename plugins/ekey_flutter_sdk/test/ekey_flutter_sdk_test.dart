@@ -13,22 +13,48 @@ void main() {
     messenger.setMockMethodCallHandler(channel, null);
   });
 
-  test('parses a completed result', () async {
+  test('parses a completed result with claims + kycData', () async {
     messenger.setMockMethodCallHandler(channel, (call) async {
       expect(call.method, 'initiateLogin');
       return <String, dynamic>{
         'status': 'completed',
         'redirectUri': 'necekey://callback?code=abc&state=xyz',
         'codeVerifier': 'verifier123',
+        'claims': <String, dynamic>{
+          'sub': 'u-1',
+          'name': 'Test User',
+          'nested': <String, dynamic>{'a': 1},
+        },
+        'kycData': <String, dynamic>{
+          'nationalId': '900112233',
+          'addresses': <dynamic>['line1'],
+        },
       };
     });
 
     final result = await EkeyFlutterSdk.initiateLogin();
 
     expect(result.status, EkeyLoginStatus.completed);
-    expect(result.isCompleted, isTrue);
     expect(result.redirectUri, contains('code=abc'));
     expect(result.codeVerifier, 'verifier123');
+    expect(result.claims?['name'], 'Test User');
+    expect((result.claims?['nested'] as Map)['a'], 1);
+    expect(result.kycData?['nationalId'], '900112233');
+  });
+
+  test('completed with no kyc scopes → kycData null', () async {
+    messenger.setMockMethodCallHandler(channel, (call) async {
+      return <String, dynamic>{
+        'status': 'completed',
+        'redirectUri': 'necekey://callback?code=abc',
+        'claims': <String, dynamic>{'sub': 'u-1'},
+      };
+    });
+
+    final result = await EkeyFlutterSdk.initiateLogin();
+
+    expect(result.claims?['sub'], 'u-1');
+    expect(result.kycData, isNull);
   });
 
   test('parses a cancelled result', () async {

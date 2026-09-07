@@ -60,12 +60,16 @@ public class EkeyFlutterSdkPlugin: NSObject, FlutterPlugin, FlutterStreamHandler
 
             Ekey.shared.initiateLogin(from: presenter) { loginResult in
                 switch loginResult {
-                case .completed(let redirectURL, let codeVerifier):
-                    self.deliver([
+                case .completed(let redirectURL, let codeVerifier, let identity):
+                    var map: [String: Any] = [
                         "status": "completed",
                         "redirectUri": redirectURL.absoluteString,
                         "codeVerifier": codeVerifier,
-                    ])
+                        // EKYC payload — EkeySDK does the token exchange internally.
+                        "claims": Self.sanitize(identity.claims),
+                    ]
+                    if let kyc = identity.kycData { map["kycData"] = Self.sanitize(kyc) }
+                    self.deliver(map)
                 case .cancelled:
                     self.deliver(["status": "cancelled"])
                 case .failed(let error):
@@ -123,6 +127,20 @@ public class EkeyFlutterSdkPlugin: NSObject, FlutterPlugin, FlutterStreamHandler
     }
 
     // MARK: - Persistence
+
+    /// Coerce the claims/kyc tree to plist- and codec-safe values (drop NSNull).
+    private static func sanitize(_ value: Any) -> Any {
+        switch value {
+        case let dict as [String: Any]:
+            var out: [String: Any] = [:]
+            for (k, v) in dict where !(v is NSNull) { out[k] = sanitize(v) }
+            return out
+        case let array as [Any]:
+            return array.filter { !($0 is NSNull) }.map { sanitize($0) }
+        default:
+            return value
+        }
+    }
 
     private static func persistResult(_ map: [String: Any]) {
         UserDefaults.standard.set(map, forKey: defaultsKey)
