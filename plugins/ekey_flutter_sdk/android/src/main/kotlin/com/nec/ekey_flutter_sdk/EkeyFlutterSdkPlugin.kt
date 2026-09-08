@@ -85,16 +85,45 @@ class EkeyFlutterSdkPlugin : FlutterPlugin, ActivityAware, MethodCallHandler,
         // Replace any earlier waiter (shouldn't happen; be safe).
         pendingResult?.let { runCatching { it.error("CANCELLED", "Superseded by a new login", null) } }
         pendingResult = result
+        // Drop any stale persisted result from a previous, unconsumed attempt.
+        clearPersistedResult(appContext)
 
-        Ekey.initiateLogin(current) { loginResult -> deliver(loginResult.toMap()) }
+        Ekey.initiateLogin(current) { loginResult ->
+            deliver(loginResult.toMap())
+            // Belt-and-suspenders: EkeyLoginActivity is about to finish(). If it
+            // ended up in its own task (or the web login went via Chrome), make
+            // sure Android surfaces THIS Activity's task, not the browser.
+            bringToFront(current)
+        }
+    }
+
+    /** Re-focus the host app's task once the flow is done. `EkeyLoginActivity`
+     *  runs as its own (singleTask) task, so after it finish()es Android may
+     *  otherwise surface whatever was behind it (e.g. the Chrome tab used for
+     *  web login). Runs while our own foreground Activity is still alive, so no
+     *  background-activity-launch restriction applies. No-op if already front. */
+    private fun bringToFront(host: Activity) {
+        host.runOnUiThread {
+            runCatching {
+                val launch = host.packageManager
+                    .getLaunchIntentForPackage(host.packageName)
+                    ?: return@runOnUiThread
+                // getLaunchIntentForPackage already sets NEW_TASK; SINGLE_TOP
+                // avoids recreating the launcher Activity if it's still alive.
+                launch.addFlags(android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                host.startActivity(launch)
+            }
+        }
     }
 
     // MARK: EventChannel.StreamHandler
 
     override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
         eventSink = events
-        // Replay a result that landed while nothing was listening.
-        takePersistedResult(appContext)?.let { events?.success(it) }
+        // Replay a result that landed while nothing was listening (without
+        // consuming it — recoverPendingResult() is the consumer; the Dart side
+        // dedups repeat deliveries).
+        peekPersistedResult(appContext)?.let { events?.success(it) }
     }
 
     override fun onCancel(arguments: Any?) {
@@ -141,17 +170,17 @@ class EkeyFlutterSdkPlugin : FlutterPlugin, ActivityAware, MethodCallHandler,
         private fun deliver(map: HashMap<String, Any?>) {
             appContext?.let { persistResult(it, map) }
             mainHandler.post {
-                val plugin = instance
-                val waiter = plugin?.pendingResult
-                val sink = plugin?.eventSink
-                if (waiter == null && sink == null) return@post // stays persisted for recovery
-
-                takePersistedResult(appContext) // consume
-                if (waiter != null) {
+                // Best-effort fast path. We do NOT clear the persisted copy here:
+                // the awaited Future / stream may belong to an engine that is
+                // about to be recreated (Android killed the host during the
+                // Chrome round-trip). The persisted copy is the source of truth
+                // and is consumed only by recoverPendingResult() / a new login.
+                val plugin = instance ?: return@post
+                plugin.pendingResult?.let {
                     plugin.pendingResult = null
-                    runCatching { waiter.success(map) }
+                    runCatching { it.success(map) }
                 }
-                runCatching { sink?.success(map) }
+                runCatching { plugin.eventSink?.success(map) }
             }
         }
 
@@ -161,10 +190,15 @@ class EkeyFlutterSdkPlugin : FlutterPlugin, ActivityAware, MethodCallHandler,
                 is EkeyLoginResult.Completed -> {
                     map["status"] = "completed"
                     map["redirectUri"] = redirectUri.toString()
-                    map["codeVerifier"] = codeVerifier
-                    // EKYC payload — EkeySDK does the token exchange internally.
-                    map["claims"] = sanitize(identity.claims)
-                    identity.kycData?.let { map["kycData"] = sanitize(it) }
+                    // codeVerifier + identity/claims/kycData exist only in the
+                    // EKYC (production) AAR — read via reflection so this also
+                    // compiles/runs against the older UAT AAR that lacks them.
+                    val completed: Any = this
+                    reflectGet(completed, "getCodeVerifier")?.let { map["codeVerifier"] = it }
+                    reflectGet(completed, "getIdentity")?.let { identity ->
+                        reflectGet(identity, "getClaims")?.let { map["claims"] = sanitize(it) }
+                        reflectGet(identity, "getKycData")?.let { map["kycData"] = sanitize(it) }
+                    }
                 }
                 is EkeyLoginResult.Failed -> {
                     map["status"] = "failed"
@@ -174,6 +208,11 @@ class EkeyFlutterSdkPlugin : FlutterPlugin, ActivityAware, MethodCallHandler,
             }
             return map
         }
+
+        /** Invoke a no-arg getter by name; null if it doesn't exist or returns null. */
+        private fun reflectGet(target: Any, getter: String): Any? = runCatching {
+            target.javaClass.getMethod(getter).invoke(target)
+        }.getOrNull()
 
         /** Coerce the claims/kyc tree to types the Flutter StandardMessageCodec accepts. */
         private fun sanitize(value: Any?): Any? = when (value) {
@@ -193,18 +232,33 @@ class EkeyFlutterSdkPlugin : FlutterPlugin, ActivityAware, MethodCallHandler,
                 .edit().putString(KEY_RESULT, json.toString()).apply()
         }
 
-        /** Returns the persisted result map (and deletes it), or null. */
-        private fun takePersistedResult(context: Context?): Map<String, Any?>? {
-            context ?: return null
-            val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-            val raw = prefs.getString(KEY_RESULT, null) ?: return null
-            prefs.edit().remove(KEY_RESULT).apply()
+        private fun prefs(context: Context?) =
+            context?.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+
+        private fun parse(raw: String?): Map<String, Any?>? {
+            raw ?: return null
             return runCatching {
                 val json = JSONObject(raw)
                 buildMap<String, Any?> {
                     for (key in json.keys()) put(key, json.opt(key)?.takeUnless { it == JSONObject.NULL })
                 }
             }.getOrNull()
+        }
+
+        /** Read the persisted result WITHOUT removing it. */
+        private fun peekPersistedResult(context: Context?): Map<String, Any?>? =
+            parse(prefs(context)?.getString(KEY_RESULT, null))
+
+        /** Read the persisted result AND remove it (the real consumer). */
+        private fun takePersistedResult(context: Context?): Map<String, Any?>? {
+            val p = prefs(context) ?: return null
+            val raw = p.getString(KEY_RESULT, null) ?: return null
+            p.edit().remove(KEY_RESULT).apply()
+            return parse(raw)
+        }
+
+        private fun clearPersistedResult(context: Context?) {
+            prefs(context)?.edit()?.remove(KEY_RESULT)?.apply()
         }
     }
 }

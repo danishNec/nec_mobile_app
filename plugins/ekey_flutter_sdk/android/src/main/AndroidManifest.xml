@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application>
         <!--
              necekey://callback (focus_uri) handler for eKey 2.0 app-to-app login.
+             The SDK class lives in EkeySDK.jar (no manifest of its own).
 
-             The bundled EkeySDK.aar declares this activity as launchMode="singleTop"
-             with its default task affinity. That breaks the return trip on hosts whose
-             launcher Activity sets android:taskAffinity="" — the Flutter default
-             MainActivity does exactly that: the incoming necekey://callback intent can't
-             be matched to the running task, so Android starts a NEW EkeyLoginActivity via
-             onCreate instead of routing to onNewIntent. The WebView then reloads from
-             scratch and the login never completes ("stuck on the WebView page").
+               launchMode="singleTask"  +  default (host-package) task affinity
+               excludeFromRecents="true"
 
-             Overriding to launchMode="singleTask" + taskAffinity="" guarantees a single
-             instance that always receives the callback through onNewIntent, and keeps it
-             in the host app's own task so finish() returns straight to MainActivity.
-             Merges into the host app automatically; nothing to add to the host.
+             singleTask = ONE instance that always receives necekey://callback via
+             onNewIntent, and (because its affinity differs from the Flutter
+             template MainActivity's android:taskAffinity="") it lives in its own
+             task. That reliably dismisses after the redirect. The plugin then
+             re-focuses the host app's task once the result is delivered (see
+             EkeyFlutterSdkPlugin.bringToFront) so the user lands back on the app,
+             not on the Chrome tab used for web login. excludeFromRecents keeps the
+             throwaway task out of the recents list.
+
+             Do NOT use singleTop or taskAffinity="" here — both break the
+             necekey://callback routing on a Flutter host (verified on-device).
         -->
         <activity
             android:name="com.example.ekeysdk.EkeyLoginActivity"
             android:exported="true"
             android:launchMode="singleTask"
-            android:taskAffinity=""
-            android:theme="@android:style/Theme.NoTitleBar"
-            tools:replace="android:launchMode,android:taskAffinity">
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 

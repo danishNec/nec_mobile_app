@@ -1,6 +1,6 @@
 name: ekey_flutter_sdk
 description: "eKey 2.0 app-to-app login for Flutter (Android + iOS). Wraps the native EkeySDK."
-version: 1.1.0
+version: 1.1.1
 publish_to: 'none'
 
 environment:

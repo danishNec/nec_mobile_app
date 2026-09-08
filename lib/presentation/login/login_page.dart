@@ -448,17 +448,15 @@ void _onEkeyResult(
 
   switch (result.status) {
     case EkeyLoginStatus.completed:
-      // EkeySDK already did the token exchange — identity + eKYC data is on the
-      // result. TODO: hand result.claims / result.kycData to the auth session.
+      // EkeySDK (prod EKYC build) returns decoded claims/kycData; the UAT build
+      // only returns the raw callback URL with code + state.
+      // TODO: hand this to the auth session / back-end.
       AppNotify.toast(
         'login.ekeySuccess'.tr(),
         type: AppToastType.success,
         position: AppToastPosition.top,
       );
-      final ekyc = result.kycData ?? result.claims;
-      if (ekyc != null && ekyc.isNotEmpty) {
-        _showEkycSheet(context, ekyc);
-      }
+      _showEkycSheet(context, _ekeyResultForDisplay(result));
     case EkeyLoginStatus.failed:
     case EkeyLoginStatus.unknown:
       AppNotify.toast(
@@ -471,6 +469,25 @@ void _onEkeyResult(
     case EkeyLoginStatus.cancelled:
       break;
   }
+}
+
+/// Everything eKey handed back, flattened for the bottom sheet. Works for both
+/// the prod EKYC build (claims/kycData) and the UAT build (redirectUri only).
+Map<String, dynamic> _ekeyResultForDisplay(EkeyLoginResult result) {
+  final out = <String, dynamic>{};
+  if (result.claims != null) out['claims'] = result.claims;
+  if (result.kycData != null) out['kycData'] = result.kycData;
+
+  final redirect = result.redirectUri;
+  if (redirect != null) {
+    out['redirectUri'] = redirect;
+    final params = Uri.tryParse(redirect)?.queryParameters ?? const {};
+    if (params['code'] != null) out['code'] = params['code'];
+    if (params['state'] != null) out['state'] = params['state'];
+  }
+  if (result.codeVerifier != null) out['codeVerifier'] = result.codeVerifier;
+  if (out.isEmpty) out['status'] = result.status.name;
+  return out;
 }
 
 /// Bottom sheet that lists the eKYC / ID-token fields returned by eKey.

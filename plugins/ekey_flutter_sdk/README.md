@@ -35,14 +35,14 @@ flutter pub get
 `EkeyLoginActivity` and the `necekey://callback` intent-filter merge into your
 app automatically. `minSdkVersion` must be **24+**.
 
-The plugin manifest overrides `EkeyLoginActivity` to
-`launchMode="singleTask"` + `taskAffinity=""`. The bundled AAR ships it as
-`singleTop` with a default affinity, which drops the return callback (the
-WebView "sticks") on Flutter apps because the template `MainActivity` uses
-`android:taskAffinity=""` — the callback intent then can't be matched to the
-running task and Android starts a second `EkeyLoginActivity` via `onCreate`.
-The override keeps a single instance in the host task so the callback always
-reaches `onNewIntent` and `finish()` returns to `MainActivity`.
+The plugin manifest declares `EkeyLoginActivity` as `launchMode="singleTask"`
+with the **default** (host-package) task affinity — the way it behaves in a
+stock React Native host. Flutter's template `MainActivity` sets
+`android:taskAffinity=""`; without this declaration the `necekey://callback`
+can't be routed to the running `EkeyLoginActivity`, so Android starts a *second*
+one via `onCreate` and the visible screen never `finish()`es ("SDK screen
+doesn't dismiss after the redirect"). `EkeySDK.jar` itself is a stock, unpatched
+repackage of `EkeySDK.aar`.
 
 ### iOS — one Info.plist entry
 
