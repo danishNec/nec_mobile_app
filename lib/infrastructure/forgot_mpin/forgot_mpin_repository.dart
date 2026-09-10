@@ -6,7 +6,7 @@ import '../../domain/core/prefs/app_prefs.dart';
 import '../../domain/core/services/api_services.dart';
 import '../../domain/forgot_mpin/forgot_id_identity_dto.dart';
 import '../../domain/forgot_mpin/forgot_mpin_failure.dart';
-import '../../domain/forgot_mpin/forgot_mpin_otp_dto.dart';
+import '../../domain/forgot_mpin/forgot_mpin_otp_dto.dart' hide Data;
 import '../../domain/forgot_mpin/i_forgot_mpin_facade.dart';
 import '../../domain/forgot_mpin/value_validators.dart';
 
@@ -27,7 +27,20 @@ class ForgotMpinRepository implements IForgotMpinFacade {
       final response = await _apiServices.getKycComboList();
       if (response.isSuccessful) {
         final loginIdIdentityDto = ForgotIdIdentityDto.fromJson(response.body);
-        return right(loginIdIdentityDto);
+        final types = loginIdIdentityDto.data?.identityTypesList ?? [];
+        if (types.isNotEmpty) return right(loginIdIdentityDto);
+        // Some environments' get-kyc-combo-list response omits
+        // identity_types_list. CPR is the only code the identity-number
+        // validator accepts, so fall back to it and let the flow proceed.
+        return right(
+          loginIdIdentityDto.copyWith(
+            data: (loginIdIdentityDto.data ?? const Data()).copyWith(
+              identityTypesList: const [
+                CountryListElement(code: 'CPR', name: 'CPR'),
+              ],
+            ),
+          ),
+        );
       } else {
         final errorMap = response.error as Map<String, dynamic>?;
         final message = errorMap?['message']?.toString() ?? '';

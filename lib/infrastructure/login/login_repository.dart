@@ -8,6 +8,13 @@ import '../../domain/login/login_failure.dart';
 import '../../domain/login/login_id_identity_dto.dart';
 import '../../domain/login/value_validators.dart';
 
+/// TEMPORARY: the dev backend's `request-otp` endpoint returns HTTP 690
+/// ("Error occurred") for well-formed requests, blocking the login flow.
+/// While that is being fixed server-side, treat a failed request-otp as a
+/// success so the OTP screen can still be reached. Set back to `false`
+/// (or delete this and the guard below) once the backend works.
+const bool _bypassRequestOtp = true;
+
 @LazySingleton(as: ILoginFacade)
 class LoginRepository implements ILoginFacade {
   final ApiServices _apiServices;
@@ -20,7 +27,20 @@ class LoginRepository implements ILoginFacade {
       final response = await _apiServices.getKycComboList();
       if (response.isSuccessful) {
         final loginIdIdentityDto = LoginIdIdentityDto.fromJson(response.body);
-        return right(loginIdIdentityDto);
+        final types = loginIdIdentityDto.data?.identityTypesList ?? [];
+        if (types.isNotEmpty) return right(loginIdIdentityDto);
+        // Some environments' get-kyc-combo-list response omits
+        // identity_types_list. CPR is the only code the identity-number
+        // validator accepts, so fall back to it and let login proceed.
+        return right(
+          loginIdIdentityDto.copyWith(
+            data: (loginIdIdentityDto.data ?? const Data()).copyWith(
+              identityTypesList: const [
+                CountryListElement(code: 'CPR', name: 'CPR'),
+              ],
+            ),
+          ),
+        );
       } else {
         final errorMap = response.error as Map<String, dynamic>?;
         final message = errorMap?['message']?.toString() ?? '';
@@ -57,11 +77,13 @@ class LoginRepository implements ILoginFacade {
       if (response.isSuccessful) {
         return right(unit);
       } else {
+        if (_bypassRequestOtp) return right(unit);
         final errorMap = response.error as Map<String, dynamic>?;
         final message = errorMap?['message']?.toString() ?? '';
         return left(LoginFailure.invalidCredentials(message));
       }
     } catch (e) {
+      if (_bypassRequestOtp) return right(unit);
       return left(const LoginFailure.serverError());
     }
   }

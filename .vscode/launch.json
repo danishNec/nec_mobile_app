@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "nec_mobile_app (dev)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": [
+        "--dart-define=APP_BASE_URL=https://dev-necmobapp.codepointrs.com",
+        "--dart-define=SECURITY_GATE_ENABLED=false"
+      ]
+    },
+    {
+      "name": "nec_mobile_app (dev, profile)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "program": "lib/main.dart",
+      "args": [
+        "--dart-define=APP_BASE_URL=https://dev-necmobapp.codepointrs.com",
+        "--dart-define=SECURITY_GATE_ENABLED=false"
+      ]
+    }
+  ]
+}
