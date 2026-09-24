@@ -69,28 +69,31 @@ class HomePage extends HookWidget {
         });
 
         // One-shot: email verification — BLoC resets to none() immediately after.
-        state.homeUserFailureOrSuccessOption.fold(() {}, (either) {
-          either.fold((_) => null, (success) {
-            final user = success.data?.user;
-            final userEmail = user?.email;
-            final isUserEmailVerified = user?.isEmailVerified ?? false;
-            if (userEmail == null ||
-                userEmail.isEmpty ||
-                !isUserEmailVerified) {
-              HapticFeedback.heavyImpact();
-              AppNotify.dialog(
-                title: 'home.emailNotVerified.title'.tr(),
-                message: 'home.emailNotVerified.message'.tr(),
-                buttonText: 'buttons.verifyEmail'.tr(),
-                type: AppDialogType.warning,
-                onPressed: () {
-                  context.router.pop();
-                  context.router.replace(const HomeEmailView());
-                },
-              );
-            }
-          });
-        });
+        // TEMPORARY: dialog display disabled per request — will be re-enabled
+        // later. Keep this block as-is (just commented out) so it can be
+        // restored by uncommenting.
+        // state.homeUserFailureOrSuccessOption.fold(() {}, (either) {
+        //   either.fold((_) => null, (success) {
+        //     final user = success.data?.user;
+        //     final userEmail = user?.email;
+        //     final isUserEmailVerified = user?.isEmailVerified ?? false;
+        //     if (userEmail == null ||
+        //         userEmail.isEmpty ||
+        //         !isUserEmailVerified) {
+        //       HapticFeedback.heavyImpact();
+        //       AppNotify.dialog(
+        //         title: 'home.emailNotVerified.title'.tr(),
+        //         message: 'home.emailNotVerified.message'.tr(),
+        //         buttonText: 'buttons.verifyEmail'.tr(),
+        //         type: AppDialogType.warning,
+        //         onPressed: () {
+        //           context.router.pop();
+        //           context.router.replace(const HomeEmailView());
+        //         },
+        //       );
+        //     }
+        //   });
+        // });
 
         // On failure: clear only the calculated field — keep what the user typed.
         // On success: guard against overwriting the field the user is typing in.

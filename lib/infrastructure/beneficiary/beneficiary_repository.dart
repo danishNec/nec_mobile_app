@@ -13,6 +13,8 @@ import '../../domain/beneficiary/beneficiary_currency_list_dto.dart';
 import '../../domain/beneficiary/beneficiary_failure.dart';
 import '../../domain/beneficiary/beneficiary_list_dto.dart';
 import '../../domain/beneficiary/beneficiary_product_field_settings_dto.dart';
+import '../../domain/beneficiary/beneficiary_product_field_settings_dto.dart'
+    as field_settings;
 import '../../domain/beneficiary/beneficiary_purpose_of_transfer_dto.dart';
 import '../../domain/beneficiary/beneficiary_route_code_dto.dart';
 import '../../domain/beneficiary/beneficiary_source_of_fund_dto.dart';
@@ -216,7 +218,9 @@ class BeneficiaryRepository implements IBeneficiaryFacade {
       if (response.isSuccessful) {
         final beneficiaryProductFieldSettingsDto =
             BeneficiaryProductFieldSettingsDto.fromJson(response.body);
-        return right(beneficiaryProductFieldSettingsDto);
+        return right(
+          _withFallbackNameFields(beneficiaryProductFieldSettingsDto),
+        );
       } else {
         return left(
           const BeneficiaryFailure.unableToGetBeneficiaryProductFieldSettings(),
@@ -531,5 +535,68 @@ class BeneficiaryRepository implements IBeneficiaryFacade {
     } catch (e) {
       return left(BeneficiaryFailure.serverError(e.toString()));
     }
+  }
+
+  // TEMPORARY: on this backend, get-all-product-field-settings never
+  // includes beneficiary first/last name fields for any product/disbursal
+  // mode tested (verified via direct API calls), yet request-Beneficiary-otp
+  // requires beneficiary_first_name/beneficiary_last_name and rejects the
+  // request as "Invalid input" when they're missing. Since the app builds
+  // the beneficiary form entirely from this field list, inject the two
+  // missing fields client-side so the user can enter a real name and it
+  // flows through the existing dynamic-field pipeline under the field names
+  // ('beneficiaryFirstName'/'beneficiaryLastName') the rest of the bloc
+  // already expects. Remove this once the backend advertises these fields.
+  BeneficiaryProductFieldSettingsDto _withFallbackNameFields(
+    BeneficiaryProductFieldSettingsDto dto,
+  ) {
+    final existing = dto.data?.allProductFieldSettingList?.beneficiary ?? [];
+    final hasFirstName = existing.any(
+      (f) => f.fieldName?.toLowerCase().contains('firstname') ?? false,
+    );
+    final hasLastName = existing.any(
+      (f) => f.fieldName?.toLowerCase().contains('lastname') ?? false,
+    );
+    if (hasFirstName && hasLastName) return dto;
+
+    final fallbackFields = <Beneficiary>[
+      if (!hasFirstName)
+        const Beneficiary(
+          fieldName: 'beneficiaryFirstName',
+          displayFieldName: 'First Name',
+          displayOrder: -2,
+          minimumLength: 1,
+          maximumLength: 50,
+          supportedDataType: 'Text',
+          type: 'Textfield',
+          enabled: true,
+          mandatory: true,
+          visible: true,
+          defaultValue: '',
+        ),
+      if (!hasLastName)
+        const Beneficiary(
+          fieldName: 'beneficiaryLastName',
+          displayFieldName: 'Last Name',
+          displayOrder: -1,
+          minimumLength: 1,
+          maximumLength: 50,
+          supportedDataType: 'Text',
+          type: 'Textfield',
+          enabled: true,
+          mandatory: true,
+          visible: true,
+          defaultValue: '',
+        ),
+    ];
+
+    return dto.copyWith(
+      data: (dto.data ?? const field_settings.Data()).copyWith(
+        allProductFieldSettingList:
+            (dto.data?.allProductFieldSettingList ??
+                    const field_settings.AllProductFieldSettingList())
+                .copyWith(beneficiary: [...fallbackFields, ...existing]),
+      ),
+    );
   }
 }

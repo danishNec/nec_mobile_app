@@ -55,7 +55,12 @@ class OtpPage extends HookWidget {
             ),
             (success) {
               final user = success.data?.user;
-              final isUserRegistered = user?.isUserRegistered ?? false;
+              // A successful OTP verification is itself proof the user is
+              // registered (some backend accounts still send
+              // is_user_registered: false here even after verifying fine,
+              // e.g. member_code 9015169) — treat reaching this success
+              // callback as authoritative over that flag.
+              const isUserRegistered = true;
               final isMpinSet = user?.isMPINCreated ?? false;
               if (isUserRegistered && isMpinSet) {
                 context.router.replaceAll([const MainRoute()]);

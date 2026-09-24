@@ -579,6 +579,23 @@ class AuthHttpClient extends http.BaseClient {
         return false;
       }
 
+      // TEMPORARY: /api/Auth/refresh-token has been observed minting JWTs
+      // that omit the MemberCode/LocationCode claims present on the
+      // original login token — the backend then rejects any authenticated
+      // call that relies on them (e.g. create-temporary-session on "Pay
+      // Now"), while calls made earlier on the still-good login token keep
+      // working. Treat a claim-stripped token as a failed refresh so the
+      // caller forces a clean re-login instead of silently persisting a
+      // token that will break unrelated calls later. Remove this guard
+      // once the backend includes these claims on every token it mints.
+      if (!_hasRequiredSessionClaims(newToken)) {
+        HttpLogger.logTokenRefresh(
+          success: false,
+          hint: 'refreshed token missing MemberCode/LocationCode claims',
+        );
+        return false;
+      }
+
       await _prefs.setToken(newToken);
       if (newRefreshToken != null && newRefreshToken.isNotEmpty) {
         await _prefs.setRefreshToken(newRefreshToken);
@@ -592,6 +609,32 @@ class AuthHttpClient extends http.BaseClient {
       );
       return false;
     }
+  }
+
+  // Decodes a JWT's payload segment without verifying its signature — used
+  // only to inspect claims already trusted because the token came straight
+  // from our own backend over HTTPS, never to validate an untrusted token.
+  Map<String, dynamic>? _decodeJwtPayload(String token) {
+    try {
+      final parts = token.split('.');
+      if (parts.length != 3) return null;
+      final normalized = base64Url.normalize(parts[1]);
+      final decoded = utf8.decode(base64Url.decode(normalized));
+      return jsonDecode(decoded) as Map<String, dynamic>;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  bool _hasRequiredSessionClaims(String token) {
+    final claims = _decodeJwtPayload(token);
+    if (claims == null) return false;
+    final memberCode = claims['MemberCode']?.toString() ?? '';
+    final locationCode = claims['LocationCode']?.toString() ?? '';
+    return memberCode.isNotEmpty &&
+        memberCode != '0' &&
+        locationCode.isNotEmpty &&
+        locationCode != '0';
   }
 
   http.BaseRequest? _cloneWithAuth(
@@ -876,7 +919,26 @@ class HttpLogger {
 
     b.write(_bot);
     log('\n${b.toString()}', name: 'HTTP');
+
+    // Single-line, grep-friendly copy of the response body, emitted via
+    // debugPrint (not just dart:developer.log) so it shows up even on
+    // consoles that don't listen to the VM's log stream — e.g. a plain
+    // `flutter run` in a VS Code integrated terminal. Mirrors the
+    // NEC-CURL request log above. Filter with `NEC-RESP` in any console.
+    log(
+      '$responseTag $statusCode $method $path (${duration}ms)\n${_clip(_prettyJson(body))}',
+      name: 'RESP',
+    );
+    debugPrint(
+      '$responseTag $statusCode $method $path (${duration}ms)',
+    );
+    if (body.isNotEmpty) debugPrint(_clip(_prettyJson(body)));
   }
+
+  /// Unique marker prefixing every single-line response log — filter the
+  /// console with `grep "NEC-RESP"` (or your IDE's log filter) to see only
+  /// these.
+  static const String responseTag = 'NEC-RESP «';
 
   static void logBinaryResponse({
     required http.BaseRequest request,

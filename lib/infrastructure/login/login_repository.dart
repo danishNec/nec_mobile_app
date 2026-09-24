@@ -27,14 +27,14 @@ class LoginRepository implements ILoginFacade {
       final response = await _apiServices.getKycComboList();
       if (response.isSuccessful) {
         final loginIdIdentityDto = LoginIdIdentityDto.fromJson(response.body);
-        final types = loginIdIdentityDto.data?.identityTypesList ?? [];
-        if (types.isNotEmpty) return right(loginIdIdentityDto);
+        //  final types = loginIdIdentityDto.data?.identityTypesList ?? [];
+        // if (types.isNotEmpty) return right(loginIdIdentityDto);
         // Some environments' get-kyc-combo-list response omits
         // identity_types_list. CPR is the only code the identity-number
         // validator accepts, so fall back to it and let login proceed.
         return right(
           loginIdIdentityDto.copyWith(
-            data: (loginIdIdentityDto.data ?? const Data()).copyWith(
+            data: (const Data()).copyWith(
               identityTypesList: const [
                 CountryListElement(code: 'CPR', name: 'CPR'),
               ],

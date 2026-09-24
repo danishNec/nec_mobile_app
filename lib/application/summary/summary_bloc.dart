@@ -665,7 +665,15 @@ class SummaryBloc extends Bloc<SummaryEvent, SummaryState> {
 
   String get _productCode {
     final beneficiary = state.summaryBeneficiaryByIdDto?.data?.beneficiaryById;
-    return (beneficiary?.productCode ?? 0).toString();
+    final productCode = beneficiary?.productCode ?? 0;
+    // TEMPORARY: /transaction/calculate-amount returns a 690 "Error
+    // occurred" for product_code 526 (the code stored on the beneficiary
+    // record for India/Cash Pickup) — verified live against
+    // dev-necmobapp.codepointrs.com on 2026-09-24. 130 is the product code
+    // this endpoint actually accepts for the rate calculation. Remove this
+    // override once the backend accepts 526 here (or aligns the beneficiary
+    // product_code with what calculate-amount expects).
+    return (productCode == 526 ? 130 : productCode).toString();
   }
 
   String get _transferTypeCode =>

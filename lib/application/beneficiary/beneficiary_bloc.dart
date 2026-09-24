@@ -1810,7 +1810,12 @@ class BeneficiaryBloc extends Bloc<BeneficiaryEvent, BeneficiaryState> {
   }
 
   String camelToSnake(String input) {
-    return input.replaceAllMapped(
+    // Some backend field names (e.g. beneficiary first/last name) already
+    // arrive with a leading underscore; without stripping it first, the
+    // outgoing key becomes `_beneficiary_first_name` instead of
+    // `beneficiary_first_name`, which the API rejects as invalid input.
+    final withoutLeadingUnderscore = input.replaceFirst(RegExp(r'^_+'), '');
+    return withoutLeadingUnderscore.replaceAllMapped(
       RegExp(r'[A-Z]'),
       (match) => '_${match.group(0)!.toLowerCase()}',
     );

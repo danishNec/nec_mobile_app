@@ -30,6 +30,32 @@ part 'home_bloc.freezed.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final IHomeFacade _homeFacade;
 
+  // TEMPORARY: on this backend, calculate-amount returns HTTP 690 for some
+  // real product/payment-mode combinations (e.g. ProductCode 526 +
+  // PaymentMode BT for BH/BHD -> IN/INR CASH PICKUP), regardless of which
+  // valid PaymentMode is sent. ProductCode 130 + PaymentMode CA is confirmed
+  // working via curl. Forcing these known-good values until the backend
+  // issue is fixed. Remove this override (and the two constants below) once
+  // the backend accepts the real selected product/payment mode.
+  static const bool _forceWorkingCalculateAmountParams = true;
+  static const String _fallbackProductCode = '130';
+  static const String _fallbackPaymentModeCode = 'CA';
+
+  // calculate-amount rejects requests with an empty/missing PaymentMode
+  // (backend returns 690). Fall back to the first available payment mode
+  // when the user hasn't explicitly picked one yet, instead of sending ''.
+  String get _effectivePaymentMethodCode {
+    if (_forceWorkingCalculateAmountParams) return _fallbackPaymentModeCode;
+    return state.selectedPaymentMethodItem?.titleCode ??
+        state.homePaymentMethodDto?.data?.paymentModes?.firstOrNull?.code ??
+        '';
+  }
+
+  String get _effectiveProductCode {
+    if (_forceWorkingCalculateAmountParams) return _fallbackProductCode;
+    return state.selectedBankOrAgentItem?.titleCode ?? '';
+  }
+
   HomeBloc(this._homeFacade) : super(HomeState.initial()) {
     on<_InitializeEvent>(_initialize);
     on<_GetHomeAdvertisementEvent>(_getHomeAdvertisement);
@@ -651,9 +677,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             sourceCurrencyCode:
                 state.selectedCommonSourceItem?.trailingCode ?? '',
             destinationAmount: safeAmount,
-            productCode: state.selectedBankOrAgentItem?.titleCode ?? '',
+            productCode: _effectiveProductCode,
             transferTypeCode: state.selectedTransferTypeItem?.titleCode ?? '',
-            paymentMethodCode: state.selectedPaymentMethodItem?.titleCode ?? '',
+            paymentMethodCode: _effectivePaymentMethodCode,
           )
         : await _homeFacade.getCalculatedSourceAmount(
             destinationCountryCode:
@@ -664,9 +690,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             sourceCurrencyCode:
                 state.selectedCommonSourceItem?.trailingCode ?? '',
             sourceAmount: safeAmount,
-            productCode: state.selectedBankOrAgentItem?.titleCode ?? '',
+            productCode: _effectiveProductCode,
             transferTypeCode: state.selectedTransferTypeItem?.titleCode ?? '',
-            paymentMethodCode: state.selectedPaymentMethodItem?.titleCode ?? '',
+            paymentMethodCode: _effectivePaymentMethodCode,
           );
 
     emit(
@@ -731,9 +757,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       sourceCountryCode: state.selectedCommonSourceItem?.titleCode ?? '',
       sourceCurrencyCode: state.selectedCommonSourceItem?.trailingCode ?? '',
       sourceAmount: safeAmount,
-      productCode: state.selectedBankOrAgentItem?.titleCode ?? '',
+      productCode: _effectiveProductCode,
       transferTypeCode: state.selectedTransferTypeItem?.titleCode ?? '',
-      paymentMethodCode: state.selectedPaymentMethodItem?.titleCode ?? '',
+      paymentMethodCode: _effectivePaymentMethodCode,
     );
 
     emit(
@@ -788,9 +814,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       sourceCountryCode: state.selectedCommonSourceItem?.titleCode ?? '',
       sourceCurrencyCode: state.selectedCommonSourceItem?.trailingCode ?? '',
       destinationAmount: safeAmount,
-      productCode: state.selectedBankOrAgentItem?.titleCode ?? '',
+      productCode: _effectiveProductCode,
       transferTypeCode: state.selectedTransferTypeItem?.titleCode ?? '',
-      paymentMethodCode: state.selectedPaymentMethodItem?.titleCode ?? '',
+      paymentMethodCode: _effectivePaymentMethodCode,
     );
 
     emit(

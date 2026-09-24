@@ -267,10 +267,8 @@ class HomeRepository implements IHomeFacade {
   }) async {
     try {
       final token = _sharedPrefs.getToken();
-      final queryParams = {
-        'transfer_mode_code': transferTypeCode,
-        'country_code': destinationCountryCode,
-      };
+      final appMemberCode = _sharedPrefs.getAppMemberCode();
+      final queryParams = {'app_member_code': appMemberCode};
       final response = await _apiServices.getBeneficiaries(
         token: token,
         queryParams: queryParams,
@@ -279,7 +277,30 @@ class HomeRepository implements IHomeFacade {
         final beneficiaryListDto = HomeBeneficiaryListDto.fromJson(
           response.body,
         );
-        return right(beneficiaryListDto);
+        // TEMPORARY: /beneficiary/get-beneficiary-list does not actually
+        // filter server-side — verified live that sending country_code /
+        // transfer_mode_code returns zero rows regardless of value, while
+        // the field-matching names (beneficiary_country_code / disbursal_mode)
+        // are silently ignored and return the full unfiltered list either
+        // way. Filter client-side by country/transfer-mode here until the
+        // backend implements real filtering on this endpoint.
+        final data = beneficiaryListDto.data;
+        if (data == null) return right(beneficiaryListDto);
+        final filtered = (data.beneficiaryList ?? []).where((b) {
+          final matchesCountry =
+              destinationCountryCode.isEmpty ||
+              b.beneficiaryCountryCode == destinationCountryCode;
+          final matchesTransferType =
+              transferTypeCode.isEmpty || b.disbursalMode == transferTypeCode;
+          return matchesCountry && matchesTransferType;
+        }).toList();
+        final filteredDto = beneficiaryListDto.copyWith(
+          data: data.copyWith(
+            beneficiaryList: filtered,
+            totalRecordCount: filtered.length,
+          ),
+        );
+        return right(filteredDto);
       } else {
         return left(const HomeFailure.unableToFetchBeneficiaryList());
       }
@@ -342,7 +363,7 @@ class HomeRepository implements IHomeFacade {
   }) async {
     try {
       final token = _sharedPrefs.getToken();
-      final memberCode = _sharedPrefs.getMemberCode();
+      final memberCode = _sharedPrefs.getAppMemberCode();
       final queryParams = {
         'member_code': memberCode,
         'otp': otp,
